@@ -7,3 +7,36 @@ body,
 :root {
   height: 100%;
 }
+
+.popFromBottomText {
+  animation: popFromBottom 0.7s ease-in-out;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

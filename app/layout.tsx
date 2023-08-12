@@ -7,6 +7,8 @@ import "./globals.css";
 
 import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navbar/navbar";
+import Head from "next/head";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const font = Urbanist({ subsets: ["latin"] });
 
@@ -23,10 +25,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <head>
+        <meta charSet='utf-8' />
+        <link rel='icon' href='/favicon.ico' />
+      </head>
       <body className={font.className}>
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

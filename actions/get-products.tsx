@@ -14,17 +14,23 @@ interface Query {
 }
 
 export const getProducts = async (query: Query): Promise<Product[]> => {
-  const url = qs.stringify({
+  // TODO: FIX THE QUERY
+  const url = qs.stringifyUrl({
     url: URL,
     query: {
       colorId: query.colorId,
-      categoryId: query.categoryId,
       sizeId: query.sizeId,
+      categoryId: query.categoryId,
       isFeatured: query.isFeatured,
     },
   });
 
+  console.log(URL);
+
   const response = await fetch(URL);
+
   const data = await response.json();
+
+  console.log(data);
   return data;
 };

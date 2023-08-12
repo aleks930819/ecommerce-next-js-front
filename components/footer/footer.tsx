@@ -10,7 +10,7 @@ const Footer = () => {
     py-10 '
     >
       <Container>
-        <div className='flex justify-between'>
+        <div className='flex flex-col gap-4 sm:gap-0 sm:flex-row justify-between'>
           <div className=''>
             <p className='text-center text-base '>
               &copy; {new Date().getFullYear()} UrbanTrend Emporium. All rights

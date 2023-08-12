@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import type { Metadata } from "next";
 
 import { Urbanist } from "next/font/google";
@@ -9,6 +9,7 @@ import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navbar/navbar";
 import Head from "next/head";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import useLoading from "@/hooks/useLoading";
 
 const font = Urbanist({ subsets: ["latin"] });
 

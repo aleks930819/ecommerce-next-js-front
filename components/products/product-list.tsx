@@ -30,7 +30,7 @@ const ProductList = ({ title, items }: ProductListProps) => {
   return (
     <div className='space-y-4'>
       <h3
-        className='text-4xl font-bold text-gray-800
+        className='text-2xl sm:text-4xl font-bold text-gray-800
       dark:text-white transition-colors duration-150 ease-in-out
       '
       >
@@ -44,7 +44,7 @@ const ProductList = ({ title, items }: ProductListProps) => {
             <li
               key={item.id}
               className={cn(
-                "opacity-0 transition duration-1000 ease-in-out",
+                "opacity-0 transition duration-700 ease-in-out",
                 isVisible && "opacity-1 animate-fadeInUp"
               )}
               ref={ref}

@@ -9,8 +9,8 @@ import CookieConsent from "@/components/ui/cookies-consent";
 export const revalidate = 0;
 
 const HomePage = async () => {
-  const products = await getProducts({ isFeatured: true });
-  const billboard = await getBillboard("7d921dca-6d31-4cce-87f5-68e61bef7082");
+  const products = await getProducts({ isFeatured: false });
+  const billboard = await getBillboard("1ad249d5-42d5-4fe0-a303-04cb6d7fc0c6");
 
   return (
     <>

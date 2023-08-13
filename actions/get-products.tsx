@@ -37,5 +37,7 @@ export const getProducts = async (query: Query): Promise<Product[]> => {
 
   console.log(data.length);
 
+  console.log(data);
+
   return data;
 };

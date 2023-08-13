@@ -14,6 +14,7 @@ import noImage from "@/assets/images/no-image-available.png";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import useWindowDimension from "@/hooks/useWindowDemension";
 import Button from "../ui/button";
+import useCart from "@/hooks/user-cart";
 
 interface ProductDetailsProps {
   product: Product;
@@ -55,6 +56,8 @@ const FullScreenImage = ({
 const ProductDetails = ({ product }: ProductDetailsProps) => {
   const [showImage, setShowImage] = useState(product?.images[0]?.url);
   const [showFullImage, setShowFullImage] = useState(false);
+
+  const cart = useCart((state) => state.addItem);
 
   const fullScreenImageRef = useRef<HTMLDivElement>(null);
 
@@ -151,6 +154,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
               className='px-8 py-2 gap-4
              dark:bg-gray-100 dark:text-gray-600
              dark:hover:bg-gray-300'
+              onClick={() => cart(product)}
             >
               ADD TO CART
               <ShoppingCart size={24} />

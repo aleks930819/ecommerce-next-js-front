@@ -28,7 +28,7 @@ const ProductList = ({ title, items }: ProductListProps) => {
   }, [inView]);
 
   return (
-    <div className='space-y-4'>
+    <div className='space-y-4 mb-28'>
       <h3
         className='text-2xl sm:text-4xl font-bold text-gray-800
       dark:text-white transition-colors duration-150 ease-in-out

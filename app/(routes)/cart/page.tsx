@@ -1,5 +1,8 @@
 "use client";
 
+import Head from "next/head";
+import type { Metadata } from "next";
+
 import useCart from "@/hooks/user-cart";
 
 import ClientOnly from "@/components/client-only/client-only";
@@ -7,12 +10,20 @@ import Container from "@/components/ui/container";
 import CartItem from "@/components/cart/cart-item";
 import Summary from "@/components/cart/summary";
 
+export const metadata: Metadata = {
+  title: "Shopping Cart",
+  description: "Shopping Cart",
+};
+
 const CartPage = () => {
   const cart = useCart();
   return (
     <ClientOnly>
+      <Head>
+        <title>Shopping Cart</title>
+      </Head>
       <Container>
-        <section className='px-4 py-16 sm:px-6 lg:px-8 mb-32'>
+        <section className='px-4 py-16 sm:px-6 lg:px-8 mb-72'>
           <h1 className='text-3xl font-extrabold text-gray-900 dark:text-white'>
             Shopping Cart
           </h1>
@@ -26,7 +37,7 @@ const CartPage = () => {
                 ))}
               </ul>
             </div>
-            <Summary />
+            {cart.items.length !== 0 && <Summary />}
           </div>
         </section>
       </Container>

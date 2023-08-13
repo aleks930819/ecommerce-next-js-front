@@ -5,11 +5,17 @@ import { useTheme } from "next-themes";
 
 import { ShoppingBag, Globe, Sun, Moon } from "lucide-react";
 
+import useCart from "@/hooks/user-cart";
+
 import Button from "@/components/ui/button";
 import ClientOnly from "@/components/client-only/client-only";
+import { useRouter } from "next/navigation";
 
 const NavbarActions = () => {
   const { theme, setTheme } = useTheme();
+  const router = useRouter();
+
+  const cart = useCart();
 
   return (
     <ClientOnly>
@@ -43,13 +49,14 @@ const NavbarActions = () => {
         </Button>
 
         <Button
+          onClick={() => router.push("/cart")}
           aria-label='Open Cart'
           className='bg-transparent text-black border
       dark:text-white dark:border-white
       border-black hover:bg-transparent hover:text-black transition-colors'
         >
           <ShoppingBag size={20} />
-          <span>0</span>
+          <span>{cart.items.length}</span>
         </Button>
       </div>
     </ClientOnly>

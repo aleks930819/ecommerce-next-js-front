@@ -5,7 +5,8 @@ import Container from "../ui/container";
 const Footer = () => {
   return (
     <footer
-      className='bg-white text-black  dark:bg-gray-800 dark:text-white border-t
+      className='bg-white
+       text-black  dark:bg-gray-800 dark:text-white border-t
      dark:border-gray-600 transition-colors duration-150 ease-in-out
     py-10 '
     >

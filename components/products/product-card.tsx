@@ -7,6 +7,8 @@ import Image from "next/image";
 import { Product } from "@/types";
 
 import { formatPrice } from "@/lib/utils";
+import { MouseEventHandler } from "react";
+import useCart from "@/hooks/user-cart";
 
 import IconButton from "@/components/ui/icon-button";
 import ClientOnly from "../client-only/client-only";
@@ -17,9 +19,14 @@ interface ProductCardProps {
 
 const ProductCard = ({ data }: ProductCardProps) => {
   const router = useRouter();
+  const cart = useCart();
 
   const handleClickRedirect = () => {
     router.push(`/product/${data.id}`);
+  };
+
+  const onAddToCart: MouseEventHandler<HTMLButtonElement> = () => {
+    cart.addItem(data);
   };
 
   return (
@@ -57,7 +64,7 @@ const ProductCard = ({ data }: ProductCardProps) => {
             />
 
             <IconButton
-              onClick={() => {}}
+              onClick={onAddToCart}
               icon={<ShoppingCart size={24} className='text-gray-600' />}
             />
           </div>

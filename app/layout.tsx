@@ -7,9 +7,9 @@ import "./globals.css";
 
 import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navbar/navbar";
-import Head from "next/head";
 import { ThemeProvider } from "@/components/ui/theme-provider";
-import useLoading from "@/hooks/useLoading";
+import ToastProvider from "@/providers/toast-provider";
+import ScrollToTopButton from "@/components/ui/scroll-to-top-button";
 
 const font = Urbanist({ subsets: ["latin"] });
 
@@ -32,6 +32,8 @@ export default function RootLayout({
       </head>
       <body className={font.className}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          <ToastProvider />
+          <ScrollToTopButton />
           <Navbar />
           <main>{children}</main>
           <Footer />

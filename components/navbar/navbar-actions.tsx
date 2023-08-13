@@ -13,7 +13,7 @@ const NavbarActions = () => {
 
   return (
     <ClientOnly>
-      <div className='ml-auto flex w-full justify-end items-end '>
+      <div className='ml-auto flex  w-full justify-start items-start sm:justify-end sm:items-end mt-5 sm:mt-0 '>
         <Button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           aria-label='Toggle Dark Mode'

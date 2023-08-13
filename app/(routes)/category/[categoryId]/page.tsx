@@ -10,6 +10,7 @@ import Container from "@/components/ui/container";
 import NoResults from "@/components/ui/no-results";
 import Filter from "@/components/ui/filter";
 import ProductsGrid from "@/components/products/products-grid";
+import MobilerFilter from "@/components/ui/mobile-filter";
 
 export const revalidate = 0;
 
@@ -41,6 +42,8 @@ const CategoryPage = async ({ params, searchParams }: CatgegoryPageProps) => {
         <div className='px-4 sm:px-6 lg:px-8 pb-24'>
           <div className='lg:grid lg:grid-cols-5 lg:gap-x-8'>
             {/* Mobile Filters */}
+            <MobilerFilter colors={colors} sizes={sizes} />
+            {/* Dekstop Filters */}
             <div className='hidden lg:block'>
               <Filter valueKey='sizeId' name='Sizes' data={sizes} />
               <Filter valueKey='colorId' name='Colors' data={colors} />

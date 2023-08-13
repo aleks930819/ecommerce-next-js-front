@@ -8,6 +8,7 @@ import Container from "@/components/ui/container";
 import MainNav from "@/components/main-nav/main-nav";
 import NavbarActions from "./navbar-actions";
 import HamburgerMenu from "../ui/hamburger-menu";
+import MobileNav from "./mobile-nav";
 
 const Navbar = async () => {
   const categories = await getCategories();
@@ -28,10 +29,7 @@ const Navbar = async () => {
           <NavbarActions />
         </div>
         {/* MOBILE MENU */}
-        {/* TODO: Create the mobile nav menu */}
-        <div className='flex lg:hidden justify-end items-center'>
-          <HamburgerMenu />
-        </div>
+        <MobileNav categories={categories} />
       </Container>
     </header>
   );

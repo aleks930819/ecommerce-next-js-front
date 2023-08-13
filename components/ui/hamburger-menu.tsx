@@ -2,15 +2,19 @@
 
 import React, { useState } from "react";
 
-const HamburgerMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface HamburgerMenuProps {
+  isOpen: boolean;
+  toggleMenu: () => void;
+}
+
+const HamburgerMenu = ({ isOpen, toggleMenu }: HamburgerMenuProps) => {
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black dark:bg-white transition ease transform duration-300`;
   return (
     <button
       className='flex flex-col h-12 w-12 border-2 border-black rounded justify-center items-center group
        dark:border-white 
       '
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={toggleMenu}
     >
       <div
         className={`${genericHamburgerLine} ${

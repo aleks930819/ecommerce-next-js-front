@@ -24,7 +24,6 @@ const ProductCard = ({ data }: ProductCardProps) => {
 
   return (
     <div
-      onClick={handleClickRedirect}
       className='bg-white group cursor-pointer rounded-xl border  p-3 space-y-4
     dark:bg-gray-800 dark:border-gray-800 dark:hover:bg-gray-700
      transition duration-150 ease-in-out hover:shadow-x
@@ -41,7 +40,7 @@ const ProductCard = ({ data }: ProductCardProps) => {
         <div className='opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5'>
           <div className='flex gap-x-4 justify-center'>
             <IconButton
-              onClick={() => {}}
+              onClick={handleClickRedirect}
               icon={<Expand size={24} className='text-gray-600' />}
             />
 
@@ -50,7 +49,9 @@ const ProductCard = ({ data }: ProductCardProps) => {
               icon={
                 <Heart
                   size={24}
-                  className='text-gray-600 hover:text-red-600 transition-colors duration-150 ease-in-out'
+                  className='text-gray-600
+                   hover:fill-gray-600
+                  transition-colors duration-150 ease-in-out'
                 />
               }
             />

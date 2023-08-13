@@ -32,9 +32,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
         {/* SUGGESTED PRODUCTS */}
         <div className='mt-10 mb-10'>
           <h2 className='text-2xl font-bold pb-4'>
-            <strong>
-              Suggested Products for you based on your current selection
-            </strong>
+            <strong>YOU MIGHT ALSO LIKE</strong>
           </h2>
           <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
             {filteredProducts.map((product) => (

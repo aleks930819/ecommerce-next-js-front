@@ -4,12 +4,16 @@ import Image from "next/image";
 
 import React, { useEffect, useRef, useState } from "react";
 
+import { Facebook, Heart, Instagram, ShoppingCart } from "lucide-react";
+
 import { cn, formatPrice } from "@/lib/utils";
 import { Product } from "@/types";
 
 import noImage from "@/assets/images/no-image-available.png";
+
 import { useClickOutside } from "@/hooks/useClickOutside";
 import useWindowDimension from "@/hooks/useWindowDemension";
+import Button from "../ui/button";
 
 interface ProductDetailsProps {
   product: Product;
@@ -33,9 +37,9 @@ const FullScreenImage = ({
   return (
     <div
       ref={fullScreenImageRef}
-      className='fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex items-center justify-center'
+      className='fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex items-center justify-center px-6 '
     >
-      <div className={cn("w-[500px] h-[500px] sm:w-[700px] sm:h-[700px]")}>
+      <div className={cn("w-[500px] h-[500px] sm:w-[650px] sm:h-[650px] ")}>
         <Image
           alt='image'
           src={image}
@@ -60,13 +64,18 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   return (
     <>
-      <div className='mt-10 flex gap-10 h-full'>
+      <div className='mt-10 flex flex-col lg:flex-row gap-10 h-full border-b  dark:border-white pb-5'>
         {/* PRODUCT IMAGE */}
         <div>
-          <div className='gap-4 flex  items-center justiy-center'>
+          <div
+            className='gap-4
+           overflow-hidden
+          flex px-6 flex-col lg:flex-row  items-center justiy-center'
+          >
             <div
               className='
-          h-[450px] w-[450px]
+          lg:h-[450px] lg:w-[450px]
+          h-[300px] w-[300px]
           border border-gray-300
           cursor-pointer
           hover:border-gray-500
@@ -80,16 +89,19 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
                 alt={product?.name}
                 width={450}
                 height={450}
-                className='object-cover w-full h-full'
+                className='object-cover w-full h-full
+                 hover:cursor-zoom-in
+                '
                 onClick={() => setShowFullImage(true)}
               />
             </div>
             {/* PRODUCT IMAGES */}
-            <div className='flex  flex-col mt-4 gap-2 items-center justify-center'>
+            <div className='flex  flex-row lg:flex-col mt-4 gap-2 items-center justify-center'>
               {product?.images.map((image) => (
                 <figure
                   key={image?.id}
-                  className='h-[150px] w-[150px]
+                  className='lg:h-[150px] lg:w-[150px]
+                 h-[100px] w-[100px]
               border border-gray-300
               cursor-pointer
               hover:border-gray-500
@@ -104,8 +116,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
                     alt={product?.name}
                     width={150}
                     height={150}
-                    className='object-cover
-                 w-full h-full
+                    className='object-cover w-full h-full
                 '
                   />
                 </figure>
@@ -126,6 +137,50 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
               {formatPrice(product?.price)}
             </strong>
           </p>
+          <p className='pb-4'>
+            <strong>COLOR: </strong>
+            {product?.color?.name.toLocaleUpperCase()}
+          </p>
+          <p className='pb-4'>
+            <strong>SIZE: </strong>
+            {product?.size?.name.toLocaleUpperCase()}
+          </p>
+
+          <div className='pb-6 flex justify-start items-center gap-4'>
+            <Button
+              className='px-8 py-2 gap-4
+             dark:bg-gray-100 dark:text-gray-600
+             dark:hover:bg-gray-300'
+            >
+              ADD TO CART
+              <ShoppingCart size={24} />
+            </Button>
+            <Button
+              className='cursor-pointer group bg-gray-400
+           hover:bg-gray-400 dark:bg-gray-100 dark:hover:bg-gray-200
+            text-center p-2 rounded-full '
+            >
+              <Heart
+                size={24}
+                className='text-gray-600 
+                group-hover:fill-gray-600
+              '
+              />
+            </Button>
+          </div>
+
+          <div className='flex gap-4'>
+            <button
+              className='bg-black
+          
+            dark:bg-white dark:text-gray-600 text-white px-4 py-2 rounded-lg'
+            >
+              <Facebook size={24} />
+            </button>
+            <button className='bg-black dark:bg-white dark:text-gray-600 text-white px-4 py-2 rounded-lg'>
+              <Instagram size={24} />
+            </button>
+          </div>
         </div>
       </div>
       {/* FULL SCREEN IMAGE */}

@@ -25,12 +25,17 @@ export const getProducts = async (query: Query): Promise<Product[]> => {
     },
   });
 
-  console.log(URL);
+  // const url = `${URL}?${qs.stringify(query)}`;
 
-  const response = await fetch(URL);
+  console.log(url);
+
+  console.log(query);
+
+  const response = await fetch(url);
 
   const data = await response.json();
 
-  console.log(data);
+  console.log(data.length);
+
   return data;
 };

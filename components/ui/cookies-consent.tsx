@@ -17,7 +17,9 @@ const CookieConsent = () => {
   }, []);
 
   const acceptCookie = () => {
-    setCookie("localConsent", "true", {});
+    setCookie("localConsent", "true", {
+      expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 60),
+    });
     setShowConsent(true);
   };
 
@@ -33,7 +35,7 @@ const CookieConsent = () => {
       '
       >
         <div
-          className='fixed bottom-0 left-0 right-0 flex items-center justify-between px-4 py-8 bg-gray-100
+          className='fixed bottom-0 left-0 right-0 flex flex-col items-start justify-between px-4 py-8 bg-gray-100
         dark:bg-gray-800 dark:text-white
         '
         >
@@ -49,7 +51,12 @@ const CookieConsent = () => {
               </Link>
             </span>
           </span>
-          <Button onClick={acceptCookie}>Accept</Button>
+          <Button
+            className='px-4 py-2 mt-2 rounded-md text-sm font-medium'
+            onClick={acceptCookie}
+          >
+            Accept
+          </Button>
         </div>
       </div>
     </ClientOnly>

@@ -11,6 +11,10 @@
     "coverage": "jest --coverage"
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.27.2",
+    "@editorjs/header": "^2.7.0",
+    "@editorjs/image": "^2.8.1",
+    "@editorjs/paragraph": "^2.10.0",
     "@headlessui/react": "^1.7.16",
     "@types/jest": "^29.5.3",
     "@types/node": "20.4.10",
@@ -20,6 +24,7 @@
     "axios": "^1.4.0",
     "clsx": "^2.0.0",
     "cookies-next": "^2.1.2",
+    "editorjs-html": "^3.4.3",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.13",
     "framer-motion": "^10.15.1",
@@ -30,6 +35,7 @@
     "query-string": "^8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-editor-js": "^2.1.0",
     "react-hot-toast": "^2.4.1",
     "react-intersection-observer": "^9.5.2",
     "tailwind-merge": "^1.14.0",
@@ -38,6 +44,10 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "install": "^0.13.0",

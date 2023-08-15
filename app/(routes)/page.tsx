@@ -6,7 +6,7 @@ import Billboard from "@/components/bilboard/bilboard";
 import ProductList from "@/components/products/product-list";
 import CookieConsent from "@/components/ui/cookies-consent";
 
-export const revalidate = 0;
+export const revalidate = 1;
 
 const HomePage = async () => {
   const products = await getProducts({ isFeatured: false });

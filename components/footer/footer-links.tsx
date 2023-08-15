@@ -1,4 +1,5 @@
 import { FooterLink } from "@/types";
+import Link from "next/link";
 
 interface FooterLinksProps {
   title: string;
@@ -13,7 +14,7 @@ const FooterLinks = ({ title, links }: FooterLinksProps) => {
       </h3>
       {links.map((link) => (
         <li key={link.text} className='text-gray-600 dark:text-gray-400 mb-2'>
-          {link.text}
+          <Link href={`${link.href ? link.href : "/"} `}>{link.text}</Link>
         </li>
       ))}
     </ul>

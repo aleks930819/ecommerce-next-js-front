@@ -11,7 +11,7 @@ import ProductsGrid from "@/components/products/products-grid";
 import MobilerFilter from "@/components/ui/mobile-filter";
 import ClientOnly from "@/components/client-only/client-only";
 
-export const revalidate = 0;
+export const revalidate = 1;
 
 interface CatgegoryPageProps {
   params: {

@@ -43,4 +43,11 @@ export interface Color {
 export interface FooterLink {
   text: string;
   url: string;
+  href?: string;
+}
+
+export interface StaticPage {
+  title: string;
+  slug: string;
+  content: string;
 }

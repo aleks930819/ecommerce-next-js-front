@@ -4,11 +4,11 @@ export const helpAndInfoLinks: FooterLink[] = [
   { text: "About Us", url: "/about" },
   { text: "Delivery & Returns", url: "/delivery" },
   { text: "Contact Us", url: "/contact" },
-  { text: "Privacy & Cookies", url: "/privacy" },
+  { text: "Privacy & Cookies", url: "/privacy", href: "/privacy-policy" },
 ];
 
 export const moreLinks: FooterLink[] = [
-  { text: "Terms & Conditions", url: "/terms" },
+  { text: "Terms & Conditions", url: "/terms", href: "/privacy-policy" },
   { text: "Black Friday", url: "/black-friday" },
   { text: "Men's Clothes", url: "/mens-clothes" },
   { text: "Women's Clothes", url: "/womens-clothes" },

@@ -21,9 +21,11 @@ const Navbar = async () => {
     >
       <Container>
         {/* DEKSTOP MENU */}
-        <div className=' hidden lg:flex justify-between items-center'>
+        <div className=' hidden lg:flex justify-between items-center '>
           <Link href='/'>
-            <p className='text-2xl font-bold font-serif'>UrbanTrend Emporium</p>
+            <p className='text-2xl font-bold font-serif border-r pr-4'>
+              UrbanTrend Emporium
+            </p>
           </Link>
           <MainNav data={categories} />
           <NavbarActions />

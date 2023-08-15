@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 import { getCategory } from "@/actions/get-category";
 import { getColors } from "@/actions/get-colors";
 import { getProducts } from "@/actions/get-products";
@@ -11,6 +9,7 @@ import NoResults from "@/components/ui/no-results";
 import Filter from "@/components/ui/filter";
 import ProductsGrid from "@/components/products/products-grid";
 import MobilerFilter from "@/components/ui/mobile-filter";
+import ClientOnly from "@/components/client-only/client-only";
 
 export const revalidate = 0;
 
@@ -21,39 +20,45 @@ interface CatgegoryPageProps {
   searchParams: {
     colorId: string;
     sizeId: string;
+    categoryId: string;
   };
 }
 
 const CategoryPage = async ({ params, searchParams }: CatgegoryPageProps) => {
+  const gender = params.categoryId;
+
   const products = await getProducts({
-    categoryId: params.categoryId,
+    categoryId: searchParams.categoryId,
     colorId: searchParams.colorId,
     sizeId: searchParams.sizeId,
+    gender,
   });
 
   const sizes = await getSizes();
   const colors = await getColors();
-  const category = await getCategory(params.categoryId);
+  const category = await getCategory(searchParams.categoryId);
 
   return (
     <div>
-      <Container>
-        <Billboard data={category?.billboard} />
-        <div className='px-4 sm:px-6 lg:px-8 pb-24'>
-          <div className='lg:grid lg:grid-cols-5 lg:gap-x-8'>
-            {/* Mobile Filters */}
-            <MobilerFilter colors={colors} sizes={sizes} />
-            {/* Dekstop Filters */}
-            <div className='hidden lg:block'>
-              <Filter valueKey='sizeId' name='Sizes' data={sizes} />
-              <Filter valueKey='colorId' name='Colors' data={colors} />
+      <ClientOnly>
+        <Container>
+          <Billboard data={category?.billboard} />
+          <div className='px-4 sm:px-6 lg:px-8 pb-24'>
+            <div className='lg:grid lg:grid-cols-5 lg:gap-x-8'>
+              {/* Mobile Filters */}
+              <MobilerFilter colors={colors} sizes={sizes} />
+              {/* Dekstop Filters */}
+              <div className='hidden lg:block'>
+                <Filter valueKey='sizeId' name='Sizes' data={sizes} />
+                <Filter valueKey='colorId' name='Colors' data={colors} />
+              </div>
+              {/* Products */}
+              {products.length === 0 && <NoResults />}
+              <ProductsGrid products={products} />
             </div>
-            {/* Products */}
-            {products.length === 0 && <NoResults />}
-            <ProductsGrid products={products} />
           </div>
-        </div>
-      </Container>
+        </Container>
+      </ClientOnly>
     </div>
   );
 };

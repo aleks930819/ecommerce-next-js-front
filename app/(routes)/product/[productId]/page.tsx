@@ -11,6 +11,9 @@ interface ProductPageProps {
   params: {
     productId: string;
   };
+  searchParams: {
+    categoryId: string;
+  };
 }
 
 const ProductPage = async ({ params }: ProductPageProps) => {

@@ -10,34 +10,35 @@ interface Query {
   categoryId?: string;
   colorId?: string;
   sizeId?: string;
+  gender?: string;
   isFeatured?: boolean;
 }
 
 export const getProducts = async (query: Query): Promise<Product[]> => {
   // TODO: FIX THE QUERY
+
+  let gender;
+
+  if (query.gender === "women") {
+    gender = "FEMALE";
+  } else if (query.gender === "men") {
+    gender = "MALE";
+  }
+
   const url = qs.stringifyUrl({
     url: URL,
     query: {
       colorId: query.colorId,
       sizeId: query.sizeId,
+      gender,
       categoryId: query.categoryId,
       isFeatured: query.isFeatured,
     },
   });
 
-  // const url = `${URL}?${qs.stringify(query)}`;
-
-  console.log(url);
-
-  console.log(query);
-
   const response = await fetch(url);
 
   const data = await response.json();
-
-  console.log(data.length);
-
-  console.log(data);
 
   return data;
 };

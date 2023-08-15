@@ -10,6 +10,7 @@ import FooterLinks from "@/components/footer/footer-links";
 
 import Container from "@/components/ui/container";
 import IconButton from "@/components/ui/icon-button";
+import Subscribe from "../subscribe/subscribe";
 
 const TopFooter = () => {
   return (
@@ -19,7 +20,7 @@ const TopFooter = () => {
           {/* LINKS */}
           <FooterLinks title='Help & Info' links={helpAndInfoLinks} />
           <FooterLinks title='More' links={moreLinks} />
-
+          <Subscribe />
           {/* ICONS */}
           <div className='flex flex-col sm:flex-row justify-end gap-4 items-center'>
             <div className='flex flex-col sm:flex-row gap-2 border-r pr-4'>

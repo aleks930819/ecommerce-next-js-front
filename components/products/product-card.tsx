@@ -1,23 +1,28 @@
 "use client";
-
-import { Expand, Bookmark, ShoppingCart, Heart } from "lucide-react";
+import { MouseEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import Image from "next/image";
+
+import { Expand, Bookmark, ShoppingCart, Heart } from "lucide-react";
+
+import noImage from "@/assets/images/no-image-available.png";
+
 import { Product } from "@/types";
 
 import { formatPrice } from "@/lib/utils";
-import { MouseEventHandler } from "react";
 import useCart from "@/hooks/user-cart";
 
 import IconButton from "@/components/ui/icon-button";
-import ClientOnly from "../client-only/client-only";
+import ClientOnly from "@/components/client-only/client-only";
 
 interface ProductCardProps {
   data: Product;
 }
 
 const ProductCard = ({ data }: ProductCardProps) => {
+  const [showImage, setShowImage] = useState(data?.images[0]?.url);
+
   const router = useRouter();
   const cart = useCart();
 
@@ -29,8 +34,18 @@ const ProductCard = ({ data }: ProductCardProps) => {
     cart.addItem(data);
   };
 
+  const changeImageOnHover = () => {
+    setShowImage(data?.images[1]?.url);
+  };
+
+  const changeImageOnLeave = () => {
+    setShowImage(data?.images[0]?.url);
+  };
+
   return (
     <div
+      onMouseEnter={changeImageOnHover}
+      onMouseLeave={changeImageOnLeave}
       className='bg-white group cursor-pointer rounded-xl border  p-3 space-y-4
     dark:bg-gray-800 dark:border-gray-800 dark:hover:bg-gray-700
      transition duration-150 ease-in-out hover:shadow-x
@@ -38,7 +53,7 @@ const ProductCard = ({ data }: ProductCardProps) => {
     >
       <div className='aspect-square roundex-xl bg-gray-100 relative'>
         <Image
-          src={data?.images?.[0].url}
+          src={showImage || noImage}
           alt={data?.name}
           fill
           className='aspect-square roundex-xl'

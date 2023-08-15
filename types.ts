@@ -13,6 +13,7 @@ export interface Category {
 export interface Product {
   id: string;
   category: Category;
+  gender: "MEN" | "FEMALE" | "UNISEX";
   name: string;
   description: string;
   price: string;

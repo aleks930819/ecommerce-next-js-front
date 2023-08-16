@@ -1,39 +1,24 @@
-"use client";
+import { Product } from "@/types";
 
-import { getProducts } from "@/actions/get-products";
 import ProductCard from "@/components/products/product-card";
-import useCategory from "@/hooks/use-category";
-import { useEffect } from "react";
 
-const SudgestedProducts = ({ categoryId }: { categoryId: string }) => {
-  const category = useCategory((state) => state.category);
-
-  console.log(category);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const suggestedProducts = await getProducts({
-        categoryId: categoryId,
-      });
-
-      const filteredProducts = suggestedProducts.filter(
-        (suggestedProduct) => suggestedProduct.id !== categoryId
-      );
-    };
-  }, []);
+const SudgestedProducts = ({ data }: { data: Product[] }) => {
+  if (data.length === 0) {
+    return null;
+  }
 
   return (
     <div className='mt-10 mb-10'>
       <h2 className='text-2xl font-bold pb-4'>
         <strong>YOU MIGHT ALSO LIKE</strong>
       </h2>
-      {/* <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-        {filteredProducts.map((product) => (
+      <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+        {data.map((product) => (
           <li key={product.id}>
             <ProductCard data={product} />
           </li>
         ))}
-      </ul> */}
+      </ul>
     </div>
   );
 };

@@ -27,6 +27,13 @@ const CartPage = () => {
           <h1 className='text-3xl font-extrabold text-gray-900 dark:text-white'>
             Shopping Cart
           </h1>
+          {cart.items.length !== 0 && (
+            <p className='text-gray-500 dark:text-gray-400 mt-1'>
+              You have {cart.items.length}{" "}
+              {`item${cart.items.length > 1 && "s"}`}
+            </p>
+          )}
+
           <div className='mt-12 lg:grid lg:grid-cols-12 lg:items-start gap-x-12'>
             <div className='lg:col-span-7'>
               {cart.items.length === 0 && <p>Your cart is empty</p>}

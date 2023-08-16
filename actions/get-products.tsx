@@ -18,10 +18,9 @@ export const getProducts = async (query: Query): Promise<Product[]> => {
   // TODO: FIX THE QUERY
 
   let gender;
-
-  if (query.gender === "women") {
+  if (query.gender === "women" || query.gender === "FEMALE") {
     gender = "FEMALE";
-  } else if (query.gender === "men") {
+  } else if (query.gender === "men" || query.gender === "MALE") {
     gender = "MALE";
   }
 

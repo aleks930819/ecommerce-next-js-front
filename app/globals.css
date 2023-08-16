@@ -8,6 +8,13 @@ body,
   height: 100%;
 }
 
+.logo img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  /* mix-blend-mode: color-burn; */
+}
+
 .transition-height {
   overflow: hidden;
   height: 0;

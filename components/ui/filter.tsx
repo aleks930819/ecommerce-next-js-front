@@ -42,7 +42,7 @@ const Filter = ({ valueKey, name, data }: FilterProps) => {
     router.push(url);
   };
 
-  console.log(data);
+  const sizesID = "07f0e8b4-7709-4396-b946-adc723a83737";
 
   return (
     <div className='mb-8'>
@@ -65,7 +65,9 @@ const Filter = ({ valueKey, name, data }: FilterProps) => {
               )}
               onClick={() => onClick(item.id)}
             >
-              {item.name}
+              {item.id === sizesID
+                ? item.value.toUpperCase()
+                : item.name.toUpperCase()}
             </Button>
           </div>
         ))}

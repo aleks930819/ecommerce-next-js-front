@@ -5,7 +5,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const isNotValidEmail = (email: string): boolean => {
-  const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const re =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   return !re.test(email);
 };
 
@@ -14,7 +15,7 @@ const Subscribe = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!email && isNotValidEmail(email)) {
+    if (!email) {
       return toast.error("Please enter a valid email");
     }
 
@@ -23,11 +24,11 @@ const Subscribe = () => {
       { email }
     );
 
+    setEmail("");
     if (res.data.message) {
       return toast.error("Already subscribed");
     }
     toast.success("Thanks for subscribing!");
-    setEmail("");
   };
 
   return (
@@ -62,13 +63,14 @@ const Subscribe = () => {
                   className='block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500'
                   placeholder='Enter your email'
                   type='email'
+                  value={email}
                   id='email'
                 />
               </div>
               <div>
                 <button
                   type='submit'
-                  className='py-3 px-5 w-full text-sm font-medium text-center dark:text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
+                  className='py-3 px-5 w-full border-gray-400  text-sm font-medium text-center dark:text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'
                 >
                   Subscribe
                 </button>

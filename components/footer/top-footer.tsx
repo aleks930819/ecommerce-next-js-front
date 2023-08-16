@@ -4,6 +4,7 @@ import { Facebook, Instagram } from "lucide-react";
 
 import visaElectron from "@/assets/images/Visa_Inc._logo.svg.png";
 import mastercard from "@/assets/images/Mastercard-logo.svg.png";
+import visa from "@/assets/images/visa-removebg-preview.png";
 
 import { helpAndInfoLinks, moreLinks } from "@/data/footer";
 import FooterLinks from "@/components/footer/footer-links";

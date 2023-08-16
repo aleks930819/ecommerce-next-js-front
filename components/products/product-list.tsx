@@ -33,8 +33,8 @@ const ProductList = ({ title, items }: ProductListProps) => {
       opacity: 1,
       scale: 1,
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
+        delayChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -42,7 +42,7 @@ const ProductList = ({ title, items }: ProductListProps) => {
   const containerItem = {
     hidden: { y: 20, opacity: 0 },
     visible: {
-      y: 0,
+      y: 20,
       opacity: 1,
     },
   };

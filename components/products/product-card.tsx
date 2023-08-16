@@ -10,11 +10,12 @@ import noImage from "@/assets/images/no-image-available.png";
 
 import { Product } from "@/types";
 
-import { formatPrice } from "@/lib/utils";
+import { cn, formatPrice } from "@/lib/utils";
 import useCart from "@/hooks/user-cart";
 
 import IconButton from "@/components/ui/icon-button";
 import ClientOnly from "@/components/client-only/client-only";
+import useWishList from "@/hooks/use-wishlist";
 
 interface ProductCardProps {
   data: Product;
@@ -25,6 +26,9 @@ const ProductCard = ({ data }: ProductCardProps) => {
 
   const router = useRouter();
   const cart = useCart();
+  const { items, addItem } = useWishList();
+
+  console.log(items);
 
   const handleClickRedirect = () => {
     router.push(`/product/${data.id}`);
@@ -41,6 +45,8 @@ const ProductCard = ({ data }: ProductCardProps) => {
   const changeImageOnLeave = () => {
     setShowImage(data?.images[0]?.url);
   };
+
+  const isItemInTheWishList = items?.some((item) => item.id === data.id);
 
   return (
     <div
@@ -65,20 +71,24 @@ const ProductCard = ({ data }: ProductCardProps) => {
               onClick={handleClickRedirect}
               icon={<Expand size={24} className='text-gray-600' />}
             />
-
             <IconButton
-              onClick={() => {}}
+              onClick={() => addItem(data)}
+              aria-label='Add item to the wishlist'
               icon={
                 <Heart
                   size={24}
-                  className='text-gray-600
-                   hover:fill-gray-600
-                  transition-colors duration-150 ease-in-out'
+                  className={cn(
+                    "text-gray-600",
+                    "hover:fill-gray-600",
+                    "transition-colors duration-150 ease-in-out",
+                    isItemInTheWishList && "fill-gray-600"
+                  )}
                 />
               }
             />
 
             <IconButton
+              aria-label='Add item to cart'
               onClick={onAddToCart}
               icon={<ShoppingCart size={24} className='text-gray-600' />}
             />

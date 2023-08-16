@@ -3,7 +3,7 @@
 import React from "react";
 import { useTheme } from "next-themes";
 
-import { ShoppingBag, Globe, Sun, Moon } from "lucide-react";
+import { ShoppingBag, Globe, Sun, Moon, Heart } from "lucide-react";
 
 import useCart from "@/hooks/user-cart";
 
@@ -46,6 +46,17 @@ const NavbarActions = () => {
         >
           <Globe size={20} />
           <span className='ml-2'>EN</span>
+        </Button>
+        <Button
+          onClick={() => router.push("/wishlist")}
+          aria-label='Change Language'
+          className='bg-transparent text-black border gap-0
+      border-none hover:bg-transparent hover:text-black transition-colors
+       dark:text-white dark:border-white
+      '
+        >
+          <Heart size={20} />
+          <span className='ml-2'>Wishlist</span>
         </Button>
 
         <Button

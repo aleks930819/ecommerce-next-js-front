@@ -40,7 +40,7 @@ const CartItem = ({ data }: CartItemProps) => {
         '
         >
           <IconButton
-            aria-label='Remove item'
+            aria-label='Remove item from the cart'
             className='dark:bg-gray-200 dark:text-black bg-black text-white
             hover:bg-gray-800 hover:text-white transition-colors
             '

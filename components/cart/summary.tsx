@@ -9,6 +9,7 @@ import useCart from "@/hooks/user-cart";
 import Button from "@/components/ui/button";
 import { formatPrice } from "@/lib/utils";
 import axios from "axios";
+import CartForm from "./cart-form";
 
 const Summary = () => {
   const searchParams = useSearchParams();
@@ -45,6 +46,7 @@ const Summary = () => {
 
   return (
     <div className='mt-16 rounded-lg bg-gray-200 dark:bg-gray-800 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8'>
+      <CartForm />
       <h2 className='text-lg font-medium dark:text-white'>Order Summary</h2>
       <div className='mt-6 space-y-4'>
         <div className='flex items-center justify-between border-t border-gray-400 dark:border-white pt-4'>

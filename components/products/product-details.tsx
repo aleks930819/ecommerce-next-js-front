@@ -15,6 +15,7 @@ import { useClickOutside } from "@/hooks/useClickOutside";
 import useWindowDimension from "@/hooks/useWindowDemension";
 import Button from "../ui/button";
 import useCart from "@/hooks/user-cart";
+import useWishList from "@/hooks/use-wishlist";
 
 interface ProductDetailsProps {
   product: Product;
@@ -58,12 +59,15 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
   const [showFullImage, setShowFullImage] = useState(false);
 
   const cart = useCart((state) => state.addItem);
+  const { items, addItem } = useWishList();
 
   const fullScreenImageRef = useRef<HTMLDivElement>(null);
 
   const handleImageChange = (image: string) => {
     setShowImage(image);
   };
+
+  const isItemInTheWishList = items.some((item) => item.id === product.id);
 
   return (
     <>
@@ -151,6 +155,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
           <div className='pb-6 flex justify-start items-center gap-4'>
             <Button
+              aria-label='Add item to cart'
               className='px-8 py-2 gap-4
              dark:bg-gray-100 dark:text-gray-600
              dark:hover:bg-gray-300'
@@ -160,15 +165,20 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
               <ShoppingCart size={24} />
             </Button>
             <Button
+              onClick={() => addItem(product)}
               className='cursor-pointer group bg-gray-400
            hover:bg-gray-400 dark:bg-gray-100 dark:hover:bg-gray-200
             text-center p-2 rounded-full '
             >
               <Heart
                 size={24}
-                className='text-gray-600 
-                group-hover:fill-gray-600
-              '
+                aria-label='Add item to the wishlist'
+                className={cn(
+                  "text-gray-600",
+                  "hover:fill-gray-600",
+                  "transition-colors duration-150 ease-in-out",
+                  isItemInTheWishList && "fill-gray-600"
+                )}
               />
             </Button>
           </div>

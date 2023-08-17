@@ -15,6 +15,7 @@ export interface Product {
   category: Category;
   gender: "MEN" | "FEMALE" | "UNISEX";
   name: string;
+  quantity: number;
   description: string;
   price: string;
   isFeatured: boolean;

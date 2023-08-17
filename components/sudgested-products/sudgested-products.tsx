@@ -3,7 +3,7 @@ import { Product } from "@/types";
 import ProductCard from "@/components/products/product-card";
 
 const SudgestedProducts = ({ data }: { data: Product[] }) => {
-  if (data.length === 0) {
+  if (!data) {
     return null;
   }
 

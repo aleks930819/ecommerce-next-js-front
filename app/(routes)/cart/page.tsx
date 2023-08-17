@@ -30,7 +30,7 @@ const CartPage = () => {
           {cart.items.length !== 0 && (
             <p className='text-gray-500 dark:text-gray-400 mt-1'>
               You have {cart.items.length}{" "}
-              {`item${cart.items.length > 1 && "s"}`}
+              {`item${cart.items.length > 1 ? "s" : ""}`}
             </p>
           )}
 

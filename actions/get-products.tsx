@@ -11,10 +11,14 @@ interface Query {
   colorId?: string;
   sizeId?: string;
   gender?: string;
+  limit?: number;
+  page?: number;
   isFeatured?: boolean;
 }
 
-export const getProducts = async (query: Query): Promise<Product[]> => {
+export const getProducts = async (
+  query: Query
+): Promise<{ products: Product[]; pages: number }> => {
   // TODO: FIX THE QUERY
 
   let gender;
@@ -32,6 +36,8 @@ export const getProducts = async (query: Query): Promise<Product[]> => {
       gender,
       categoryId: query.categoryId,
       isFeatured: query.isFeatured,
+      limit: query.limit || 12,
+      page: query.page || 0,
     },
   });
 

@@ -19,7 +19,7 @@ const NavbarActions = () => {
 
   return (
     <ClientOnly>
-      <div className='ml-auto flex  w-full justify-start items-start sm:justify-end sm:items-end mt-5 sm:mt-0 '>
+      <div className='ml-auto flex gap-4 sm:gap-0 flex-col sm:flex-row  w-full justify-start items-start sm:justify-end sm:items-end mt-5 sm:mt-0 '>
         <Button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           aria-label='Toggle Dark Mode'
@@ -62,9 +62,9 @@ const NavbarActions = () => {
         <Button
           onClick={() => router.push("/cart")}
           aria-label='Open Cart'
-          className='bg-transparent text-black border
-      dark:text-white dark:border-white
-      border-black hover:bg-transparent hover:text-black transition-colors'
+          className='bg-transparent text-black 
+      dark:text-white sm:dark:border-white 
+       hover:bg-transparent hover:text-black transition-colors'
         >
           <ShoppingBag size={20} />
           <span>{cart.items.length}</span>

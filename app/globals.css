@@ -44,6 +44,32 @@ body,
   animation: fadeInFromLeft 0.5s ease-in-out;
 }
 
+.menu-open {
+  animation: slideIn 0.3s ease-in-out forwards;
+}
+
+.menu-closed {
+  animation: slideOut 0.3s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 @keyframes fadeInFromLeft {
   0% {
     transform: translateX(-100%);
@@ -92,8 +118,7 @@ body,
 /* STATIC PAGES VIEW */
 
 .static-page {
-  min-height: 100vh;
-  display: flex;
+  height: 100%;
   margin: 0 auto;
   max-width: 1370px;
   justify-content: center;

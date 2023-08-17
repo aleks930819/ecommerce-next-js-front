@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
-import { AlignJustify, X } from "lucide-react";
+import { AlignJustify, Link, X } from "lucide-react";
 
 import { Category } from "@/types";
 
@@ -10,15 +10,29 @@ import MainNav from "../main-nav/main-nav";
 import HamburgerMenu from "../ui/hamburger-menu";
 import IconButton from "../ui/icon-button";
 import NavbarActions from "./navbar-actions";
+import { useRouter } from "next/navigation";
 
 interface MobileNavProps {
   categories: Category[];
 }
 
+const linkCategories = [
+  {
+    label: "Women",
+    href: "/category/women",
+  },
+  {
+    label: "Men",
+    href: "/category/men",
+  },
+];
+
 const MobileNav = ({ categories }: MobileNavProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const router = useRouter();
 
   return (
     <div className='flex lg:hidden justify-end items-center'>
@@ -50,10 +64,32 @@ const MobileNav = ({ categories }: MobileNavProps) => {
             </div>
 
             <div className='flex flex-col gap-4 px-4 mt-4'>
-              <MainNav
-                data={categories}
-                className='flex flex-col gap-4 px-4 mt-4'
-              />
+              {
+                <ul className='flex flex-col gap-4 text-lg'>
+                  {linkCategories.map((linkCategory) => (
+                    <li key={linkCategory.href}>
+                      <span className='dark:text-white text-xl font-bold hover:text-gray-400 mb-4'>
+                        {linkCategory.label}
+                      </span>
+                      {categories.map((category) => (
+                        <li key={category.id}>
+                          <button
+                            onClick={() =>
+                              router.push(
+                                `/category/${linkCategory.label.toLocaleLowerCase()}?categoryId=${
+                                  category.id
+                                }`
+                              )
+                            }
+                          >
+                            {category.name.toUpperCase()}
+                          </button>
+                        </li>
+                      ))}
+                    </li>
+                  ))}
+                </ul>
+              }
               <NavbarActions />
             </div>
           </Dialog.Panel>

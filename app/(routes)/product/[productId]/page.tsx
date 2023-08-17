@@ -19,13 +19,14 @@ interface ProductPageProps {
 const ProductPage = async ({ params }: ProductPageProps) => {
   const product = await getProduct(params.productId);
 
-  const sudgestedProducts = await getProducts({
+  const { products: sudgestedProducts } = await getProducts({
     isFeatured: true,
     categoryId: product?.category.id,
     gender: product?.gender,
+    limit: 4,
   });
 
-  const filteredProducts = sudgestedProducts.filter(
+  const filteredProducts = sudgestedProducts?.filter(
     (suggestedProduct) => suggestedProduct.id !== product.id
   );
 

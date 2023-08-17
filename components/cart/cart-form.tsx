@@ -73,14 +73,11 @@ const CartForm = () => {
       <div className='flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700'>
         <CartFormCheckBox
           htmlFor='bordered-checkbox-3'
-          label='With Credit Card'
+          label='Pay With Credit Card'
         />
       </div>
       <div className='flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700'>
-        <CartFormCheckBox
-          htmlFor='bordered-checkbox-4'
-          label='When Receiving the Package'
-        />
+        <CartFormCheckBox htmlFor='bordered-checkbox-4' label='Pay With Cash' />
       </div>
     </form>
   );

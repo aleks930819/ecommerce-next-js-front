@@ -2,7 +2,11 @@ import { FooterLink } from "@/types";
 
 export const helpAndInfoLinks: FooterLink[] = [
   { text: "About Us", url: "/about" },
-  { text: "Delivery & Returns", url: "/delivery" },
+  {
+    text: "Delivery & Returns",
+    url: "/delivery",
+    href: "delivery-information",
+  },
   { text: "Contact Us", url: "/contact" },
   { text: "Privacy & Cookies", url: "/privacy", href: "/privacy-policy" },
 ];

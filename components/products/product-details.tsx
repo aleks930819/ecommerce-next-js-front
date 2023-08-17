@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
+
+import ReactImageMagnify from "react-image-magnify";
 
 import { Facebook, Heart, Instagram, ShoppingCart } from "lucide-react";
 
@@ -13,9 +15,10 @@ import noImage from "@/assets/images/no-image-available.png";
 
 import { useClickOutside } from "@/hooks/useClickOutside";
 import useWindowDimension from "@/hooks/useWindowDemension";
-import Button from "../ui/button";
 import useCart from "@/hooks/user-cart";
 import useWishList from "@/hooks/use-wishlist";
+
+import Button from "@/components/ui/button";
 
 interface ProductDetailsProps {
   product: Product;
@@ -140,17 +143,21 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           <p className='pb-4'>{product?.description}</p>
           <p className='pb-4'>
             <strong>
-              Price:
+              PRICE:
               {formatPrice(product?.price)}
             </strong>
           </p>
           <p className='pb-4'>
-            <strong>COLOR: </strong>
-            {product?.color?.name.toLocaleUpperCase()}
+            <strong>COLOR: </strong> {product?.color?.name.toLocaleUpperCase()}
           </p>
           <p className='pb-4'>
             <strong>SIZE: </strong>
             {product?.size?.name.toLocaleUpperCase()}
+          </p>
+
+          <p className='pb-4'>
+            <strong>QUANTITY: </strong>
+            {product?.quantity}
           </p>
 
           <div className='pb-6 flex justify-start items-center gap-4'>

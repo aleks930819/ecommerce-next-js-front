@@ -9,7 +9,11 @@ import CookieConsent from "@/components/ui/cookies-consent";
 export const revalidate = 1;
 
 const HomePage = async () => {
-  const products = await getProducts({ isFeatured: false });
+  const { products, pages } = await getProducts({
+    isFeatured: false,
+    limit: 10,
+  });
+
   const billboard = await getBillboard("4f4678f2-31a8-4b57-8207-53822a0655e5");
 
   return (

@@ -27,7 +27,7 @@ interface CatgegoryPageProps {
 const CategoryPage = async ({ params, searchParams }: CatgegoryPageProps) => {
   const gender = params.categoryId;
 
-  const products = await getProducts({
+  const { products } = await getProducts({
     categoryId: searchParams.categoryId,
     colorId: searchParams.colorId,
     sizeId: searchParams.sizeId,

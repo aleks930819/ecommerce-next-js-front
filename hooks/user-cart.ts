@@ -15,6 +15,7 @@ const useCart = create(
   persist<CartStore>(
     (set, get) => ({
       items: [],
+
       addItem: (data: Product) => {
         const currentItems = get().items;
         const existingItem = currentItems.find((item) => item.id === data.id);
@@ -23,13 +24,25 @@ const useCart = create(
           return toast.error("Item already in cart.");
         }
 
-        set({ items: [...get().items, data] });
+        set({
+          items: [...get().items, data],
+        });
+
         toast.success(`${data.name} added to cart.`);
       },
       removeItem: (id: string) => {
-        set({ items: [...get().items.filter((item) => item.id !== id)] });
+        const currentItems = get().items;
+        const removedItem = currentItems.find((item) => item.id === id);
+
+        if (removedItem) {
+          set({
+            items: [...currentItems.filter((item) => item.id !== id)],
+          });
+        }
       },
-      removeAll: () => set({ items: [] }),
+      removeAll: () => {
+        set({ items: [] });
+      },
     }),
     {
       name: "cart-storage",

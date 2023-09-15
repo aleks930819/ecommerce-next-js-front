@@ -16,6 +16,7 @@ import useCart from "@/hooks/user-cart";
 import IconButton from "@/components/ui/icon-button";
 import ClientOnly from "@/components/client-only/client-only";
 import useWishList from "@/hooks/use-wishlist";
+import { useQuickViewStore } from "@/hooks/use-qickview";
 
 interface ProductCardProps {
   data: Product;
@@ -27,8 +28,8 @@ const ProductCard = ({ data }: ProductCardProps) => {
   const router = useRouter();
   const cart = useCart();
   const { items, addItem } = useWishList();
-
-  console.log(items);
+  const openQuickView = useQuickViewStore((state) => state.openQuickView);
+  const setProduct = useQuickViewStore((state) => state.setProduct);
 
   const handleClickRedirect = () => {
     router.push(`/product/${data.id}`);
@@ -64,11 +65,15 @@ const ProductCard = ({ data }: ProductCardProps) => {
           fill
           className='aspect-square roundex-xl'
           objectFit='cover'
+          onClick={handleClickRedirect}
         />
         <div className='opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5'>
           <div className='flex gap-x-4 justify-center'>
             <IconButton
-              onClick={handleClickRedirect}
+              onClick={() => {
+                setProduct(data);
+                openQuickView();
+              }}
               icon={<Expand size={24} className='text-gray-600' />}
             />
             <IconButton

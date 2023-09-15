@@ -19,6 +19,8 @@ import useCart from "@/hooks/user-cart";
 import useWishList from "@/hooks/use-wishlist";
 
 import Button from "@/components/ui/button";
+import SocialIncons from "../social-icons/social-icons";
+import ProductDetailsActions from "./product-details-actions";
 
 interface ProductDetailsProps {
   product: Product;
@@ -61,16 +63,11 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
   const [showImage, setShowImage] = useState(product?.images[0]?.url);
   const [showFullImage, setShowFullImage] = useState(false);
 
-  const cart = useCart((state) => state.addItem);
-  const { items, addItem } = useWishList();
-
   const fullScreenImageRef = useRef<HTMLDivElement>(null);
 
   const handleImageChange = (image: string) => {
     setShowImage(image);
   };
-
-  const isItemInTheWishList = items.some((item) => item.id === product.id);
 
   return (
     <>
@@ -160,48 +157,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             {product?.quantity}
           </p>
 
-          <div className='pb-6 flex justify-start items-center gap-4'>
-            <Button
-              aria-label='Add item to cart'
-              className='px-8 py-2 gap-4
-             dark:bg-gray-100 dark:text-gray-600
-             dark:hover:bg-gray-300'
-              onClick={() => cart(product)}
-            >
-              ADD TO CART
-              <ShoppingCart size={24} />
-            </Button>
-            <Button
-              onClick={() => addItem(product)}
-              className='cursor-pointer group bg-gray-400
-           hover:bg-gray-400 dark:bg-gray-100 dark:hover:bg-gray-200
-            text-center p-2 rounded-full '
-            >
-              <Heart
-                size={24}
-                aria-label='Add item to the wishlist'
-                className={cn(
-                  "text-gray-600",
-                  "hover:fill-gray-600",
-                  "transition-colors duration-150 ease-in-out",
-                  isItemInTheWishList && "fill-gray-600"
-                )}
-              />
-            </Button>
-          </div>
-
-          <div className='flex gap-4'>
-            <button
-              className='bg-black
-          
-            dark:bg-white dark:text-gray-600 text-white px-4 py-2 rounded-lg'
-            >
-              <Facebook size={24} />
-            </button>
-            <button className='bg-black dark:bg-white dark:text-gray-600 text-white px-4 py-2 rounded-lg'>
-              <Instagram size={24} />
-            </button>
-          </div>
+          <ProductDetailsActions product={product} />
+          <SocialIncons />
         </div>
       </div>
       {/* FULL SCREEN IMAGE */}

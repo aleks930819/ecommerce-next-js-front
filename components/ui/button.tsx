@@ -3,7 +3,12 @@ import React, { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  className?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+}
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, disabled, type = "button", className, ...props }, ref) => {
@@ -14,9 +19,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         type={type}
         disabled={disabled}
         className={cn(
-          `
-           flex justify-center items-center gap-2
-          px-4 py-2 rounded-md bg-black text-white text-sm font-medium  hover:bg-gray-900 transition-colors
+          `flex justify-center items-center gap-2
+          px-4 py-2 rounded-md bg-black text-white dark:bg-gray-800  text-sm font-medium  hover:bg-gray-900 transition-colors
            disabled:opacity-50 disabled:cursor-not-allowed`,
           className
         )}

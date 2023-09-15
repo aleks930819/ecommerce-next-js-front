@@ -42,8 +42,8 @@ const CategoryPage = async ({ params, searchParams }: CatgegoryPageProps) => {
     <div>
       <ClientOnly>
         <Container>
-          <Billboard data={category?.billboard} />
-          <div className='px-4 sm:px-6 lg:px-8 pb-24'>
+          {/* <Billboard data={category?.billboard} /> */}
+          <div className='px-4 sm:px-6 lg:px-8 pb-24 mt-10'>
             <div className='lg:grid lg:grid-cols-5 lg:gap-x-8'>
               {/* Mobile Filters */}
               <MobilerFilter colors={colors} sizes={sizes} />

@@ -10,7 +10,7 @@ import NoResults from "../ui/no-results";
 import ProductCard from "./product-card";
 
 interface ProductListProps {
-  title: string;
+  title?: string;
   items: Product[];
 }
 

@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import { ShoppingBag, Globe, Sun, Moon, Heart } from "lucide-react";
 
 import useCart from "@/hooks/user-cart";
+import useCheckoutMenu from "@/hooks/use-checkout";
 
 import Button from "@/components/ui/button";
 import ClientOnly from "@/components/client-only/client-only";
@@ -16,6 +17,7 @@ const NavbarActions = () => {
   const router = useRouter();
 
   const cart = useCart();
+  const openCheckoutMenu = useCheckoutMenu((state) => state.openCheckoutMenu);
 
   return (
     <ClientOnly>
@@ -60,7 +62,7 @@ const NavbarActions = () => {
         </Button>
 
         <Button
-          onClick={() => router.push("/cart")}
+          onClick={() => openCheckoutMenu()}
           aria-label='Open Cart'
           className='bg-transparent text-black 
       dark:text-white sm:dark:border-white 

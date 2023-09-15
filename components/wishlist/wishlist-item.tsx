@@ -38,6 +38,7 @@ const WishlistItem = ({ data }: WishlistItemProps) => {
             className='object-cover w-full h-full hover:scale-105 transition duration-300 ease-in-out
             '
             width={400}
+            loading='lazy'
             height={400}
             alt='product image'
             src={data?.images?.[0].url}

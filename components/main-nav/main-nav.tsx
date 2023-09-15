@@ -25,7 +25,6 @@ const MainNav = ({ data, className }: MainNavProps) => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
 
   const menRef = React.useRef<HTMLLIElement>(null);
-  const womanRef = React.useRef<HTMLLIElement>(null);
 
   const routes = data.map((route) => ({
     href: `/category/${route.id}`,
@@ -39,12 +38,6 @@ const MainNav = ({ data, className }: MainNavProps) => {
   };
 
   const categories = [
-    {
-      label: "Women",
-      links: routes,
-      href: "/category/women",
-      ref: womanRef,
-    },
     {
       label: "Men",
       links: routes,

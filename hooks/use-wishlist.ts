@@ -20,7 +20,7 @@ const useWishList = create(
         const existingItem = currentItems.find((item) => item.id === data.id);
 
         if (existingItem) {
-          return toast("Item already in the wishlist.");
+          return toast.error("Item already in the wishlist.");
         }
 
         set({ items: [...get().items, data] });

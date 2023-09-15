@@ -55,6 +55,7 @@ const Filter = ({ valueKey, name, data }: FilterProps) => {
               className={cn(
                 `px-4 py-2 rounded-md text-sm font-medium
                 hover:bg-gray-900 transition-colors hover:text-white
+                dark:text-white
                 dark:hover:bg-gray-700 dark:hover:text-white
                 disabled:opacity-50 disabled:cursor-not-allowed
                 

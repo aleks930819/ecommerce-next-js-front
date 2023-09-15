@@ -11,6 +11,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import ToastProvider from "@/providers/toast-provider";
 import ScrollToTopButton from "@/components/ui/scroll-to-top-button";
 import ContactUsButton from "@/components/contact-us/contact-us-button";
+import CheckoutMenu from "@/components/checkout-menu/checkout-menu";
 
 const font = Urbanist({ subsets: ["latin"] });
 
@@ -38,6 +39,7 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           {/* <ContactUsButton /> */}
+          <CheckoutMenu />
           <Footer />
         </ThemeProvider>
       </body>

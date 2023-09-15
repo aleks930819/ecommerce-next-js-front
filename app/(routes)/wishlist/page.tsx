@@ -8,6 +8,7 @@ import WishlistItem from "@/components/wishlist/wishlist-item";
 
 const WishlistPage = () => {
   const wishlist = useWishList();
+
   return (
     <ClientOnly>
       <Container>

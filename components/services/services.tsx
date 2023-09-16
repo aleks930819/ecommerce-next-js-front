@@ -23,7 +23,7 @@ const ServicesItem = ({
 
 const Services = () => {
   return (
-    <section className='py-6 lg:py-12 bg-gray-200 dark:bg-gray-800  mb-10'>
+    <section className='py-6 lg:py-12 bg-gray-200 dark:bg-gray-800  mb-20 lg:mx-6'>
       <div className='max-w-7xl mx-auto w-full px-2 lg:px-6'>
         <ul className='flex flex-col lg:flex-row lg:justify-between  items-center gap-5'>
           <li className=''>

@@ -6,6 +6,7 @@ import ProductList from "@/components/products/product-list";
 import CookieConsent from "@/components/ui/cookies-consent";
 import MainBillboard from "@/components/ui/main-billboard";
 import Services from "@/components/services/services";
+import News from "@/components/news/news";
 
 export const revalidate = 1;
 
@@ -22,11 +23,12 @@ const HomePage = async () => {
       <MainBillboard url={billboard.imageUrl} />
       <Container>
         <div className='space-y-10 pb-10 '></div>
-        <section className='flex flex-col  mb-10 px-4 sm:px-6 lg:px-8'>
+        <section className='flex flex-col  mb-20 px-4 sm:px-6 lg:px-8'>
           <h2 className='text-center text-2xl lg:text-4xl font-semibold'>
             Our Latest Products
           </h2>
           <ProductList items={products} />
+          <News />
           <Services />
         </section>
       </Container>

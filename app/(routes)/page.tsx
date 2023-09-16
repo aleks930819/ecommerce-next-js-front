@@ -1,5 +1,3 @@
-import { MoveRight } from "lucide-react";
-
 import { getBillboard } from "@/actions/get-billboard";
 import { getProducts } from "@/actions/get-products";
 
@@ -7,6 +5,7 @@ import Container from "@/components/ui/container";
 import ProductList from "@/components/products/product-list";
 import CookieConsent from "@/components/ui/cookies-consent";
 import MainBillboard from "@/components/ui/main-billboard";
+import Services from "@/components/services/services";
 
 export const revalidate = 1;
 
@@ -28,6 +27,7 @@ const HomePage = async () => {
             Our Latest Products
           </h2>
           <ProductList items={products} />
+          <Services />
         </section>
       </Container>
 

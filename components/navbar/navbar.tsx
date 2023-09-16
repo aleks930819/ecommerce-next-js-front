@@ -15,9 +15,9 @@ const Navbar = async () => {
 
   return (
     <header
-      className='border-b  py-6  bg-white dark:bg-gray-800
+      className='border-b  relative py-6  bg-white dark:bg-gray-800 z-50
      dark:border-gray-800 transition-colors duration-150 ease-in-out
-    w-full shadow-md'
+    w-full shadow-lg'
     >
       <Container>
         {/* DEKSTOP MENU */}

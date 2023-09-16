@@ -1,3 +1,6 @@
+@import url("./styles/animations.css");
+@import url("./styles/static-page.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,166 +18,27 @@ body,
   /* mix-blend-mode: color-burn; */
 }
 
-.transition-height {
-  overflow: hidden;
-  height: 0;
-  transform-origin: top;
-  transform: scaleY(0);
-  transition: transform 0.5s ease-in-out;
+.text-transition {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  transform: translateX(0);
+  opacity: 1;
 }
 
-.show {
-  transform: scaleY(1);
-  height: 45vh;
+.arrow-transition {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  transform: translateX(0);
+  opacity: 1;
 }
 
-.popFromBottomText {
-  animation: popFromBottom 0.7s ease-in-out;
+.hovered .text-transition {
+  transform: translateX(15px);
 }
 
-.animate-fadeInUp {
-  animation: fadeInUp 0.5s ease-in-out;
-}
-
-.animate-fadeInDown {
-  animation: fadeInDown 0.2s ease-out;
-}
-
-.animate-fadeInFromLeft {
-  animation: fadeInFromLeft 0.5s ease-in-out;
-}
-
-.menu-open {
-  animation: slideIn 0.3s ease-in-out forwards;
-}
-
-.menu-closed {
-  animation: slideOut 0.3s ease-in-out forwards;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideOut {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes fadeInFromLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInDown {
-  0% {
-    transform: translateY(-5%);
-    opacity: 0.7;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes popFromBottom {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-/* STATIC PAGES VIEW */
-
-.static-page {
-  height: 100%;
-  margin: 0 auto;
-  max-width: 1370px;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 60px;
-}
-
-.static-page h1,
-h2,
-h3,
-h4,
-h6 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.static-page h1 {
-  font-size: 2.5rem;
-}
-
-.static-page h2 {
-  font-size: 2rem;
-}
-
-.static-page h3 {
-  font-size: 1.5rem;
-}
-
-.static-page h4 {
-  font-size: 1.25rem;
-}
-
-.static-page h5 {
-  font-size: 1rem;
-}
-
-.static-page h6 {
-  font-size: 0.75rem;
-}
-
-.static-page p {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.static-page li {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-bottom: 10px;
-  margin-left: 25px;
-  list-style: disc;
+.hovered .arrow-transition {
+  transform: translateX(20px);
+  opacity: 0;
 }

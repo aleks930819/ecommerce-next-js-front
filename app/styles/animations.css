@@ -1,0 +1,129 @@
+.transition-height {
+  overflow: hidden;
+  height: 0;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.show {
+  transform: scaleY(1);
+  height: 45vh;
+}
+
+.popFromBottomText {
+  animation: popFromBottom 0.7s ease-in-out;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.2s ease-out;
+}
+
+.animate-fadeInFromLeft {
+  animation: fadeInFromLeft 0.5s ease-in-out;
+}
+
+.menu-open {
+  animation: slideIn 0.3s ease-in-out forwards;
+}
+
+.menu-closed {
+  animation: slideOut 0.3s ease-in-out forwards;
+}
+
+.animate-slide-in-top {
+  animation: slide-in-top 0.7s ease forwards;
+}
+
+.animate-pop-up {
+  animation: pop-up 0.7s ease forwards;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pop-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fadeInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    transform: translateY(-5%);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

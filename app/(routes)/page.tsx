@@ -23,7 +23,10 @@ const HomePage = async () => {
       <MainBillboard url={billboard.imageUrl} />
       <Container>
         <div className='space-y-10 pb-10 '></div>
-        <section className='flex flex-col gap-y-8 mb-10 px-4 sm:px-6 lg:px-8'>
+        <section className='flex flex-col  mb-10 px-4 sm:px-6 lg:px-8'>
+          <h2 className='text-center text-2xl lg:text-4xl font-semibold'>
+            Our Latest Products
+          </h2>
           <ProductList items={products} />
         </section>
       </Container>

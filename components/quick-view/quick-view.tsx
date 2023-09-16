@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Timer, Star, Facebook, Youtube, Instagram, Heart } from "lucide-react";
+import { Truck, LayoutPanelLeft, CreditCard } from "lucide-react";
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -23,11 +23,8 @@ import ProductDetailsActions from "../products/product-details-actions";
 import useCart from "@/hooks/user-cart";
 import useWishList from "@/hooks/use-wishlist";
 
-// import ProductDetailsActions from "@/components/product-details/product-details-actions";
-// import ToolTip from "../ui/tooltip";
-// import ButtonIcon from "../ui/button-icon";
-// import CardLogos from "../ui/card-logos";
-// import SocialLinks from "../ui/social-links";
+import visaElectron from "@/assets/images/Visa_Inc._logo.svg.png";
+import mastercard from "@/assets/images/Mastercard-logo.svg.png";
 
 const QuickView = () => {
   const isOpen = useQuickViewStore((state) => state.isOpen);
@@ -98,15 +95,6 @@ const QuickView = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              {/* <div className='absolute top-0 right-10 z-50 p-2  flex flex-col gap-2'>
-                <button
-                  aria-label='add to wishlist'
-                  className='opacity-100'
-                  onClick={() => {}}
-                >
-                  <Heart size={25} />
-                </button>
-              </div> */}
               <div
                 className='flex gap-2 mt-2 flex-wrap
                max-w-[450px] overflow-x-auto
@@ -135,19 +123,56 @@ const QuickView = () => {
               </div>
             </div>
             {/* PRODUCT INFO */}
-            <div className='flex flex-col items-start  '>
+            <div className='flex flex-col  items-start lg:max-h-[500px] '>
               <h2 className='text-2xl lg:text-3xl font-bold  text-start mb-4 pt-2'>
                 <Link href='/' className='hover:text-primary-2 hover:underline'>
                   {product.name}
                 </Link>
               </h2>
-              <p className='text-gray-5 mb-4'>{product.description}</p>
+              <p className='text-gray-5 mb-6'>{product.description}</p>
 
-              <div className='flex flex-col pb-4 lg:pb-0 gap-5 lg:gap-0 lg:flex-row items-center justify-between w-full'>
+              {/* PRODUCT ACTIONS */}
+              <div className='flex  flex-col items-start pb-4 lg:pb-0 lg:mb-6 gap-5 lg:gap-0 lg:flex-row lg:items-center justify-between w-full'>
                 <ProductDetailsActions product={product} className='pb-0' />
                 <SocialIncons />
               </div>
-              {/* PRODUCT ACTIONS */}
+              <div className='mt-auto'>
+                <p className='flex items-center gap-2 text-gray-5 mb-6'>
+                  <span>
+                    <Truck size={20} />
+                  </span>
+                  <span>Free Shipping & Returns</span>
+                </p>
+                <p className='flex items-center gap-2 text-gray-5 mb-6'>
+                  <span>
+                    <LayoutPanelLeft size={20} />
+                  </span>
+                  <span>Category:</span>
+                </p>
+
+                <div className='flex  lg:gap-4'>
+                  <figure className='flex items-center aspect-square w-[40px] h-[40px] '>
+                    <Image
+                      src={visaElectron}
+                      alt='visa'
+                      width={40}
+                      height={40}
+                      objectFit='cover'
+                      className='rounded-md'
+                    />
+                  </figure>
+                  <figure className='flex items-center aspect-square w-[40px] h-[40px] '>
+                    <Image
+                      src={mastercard}
+                      alt='visa'
+                      width={40}
+                      height={40}
+                      objectFit='cover'
+                      className='rounded-md'
+                    />
+                  </figure>
+                </div>
+              </div>
             </div>
           </div>
         </div>

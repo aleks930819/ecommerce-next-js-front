@@ -10,6 +10,7 @@ import Filter from "@/components/ui/filter";
 import ProductsGrid from "@/components/products/products-grid";
 import MobilerFilter from "@/components/ui/mobile-filter";
 import ClientOnly from "@/components/client-only/client-only";
+import Pagination from "@/components/pagination/pagination";
 
 export const revalidate = 1;
 
@@ -21,22 +22,21 @@ interface CatgegoryPageProps {
     colorId: string;
     sizeId: string;
     categoryId: string;
+    page: string;
   };
 }
 
 const CategoryPage = async ({ params, searchParams }: CatgegoryPageProps) => {
-  const gender = params.categoryId;
-
-  const { products } = await getProducts({
-    categoryId: searchParams.categoryId,
+  const { products, meta_data } = await getProducts({
+    categoryId: params.categoryId,
     colorId: searchParams.colorId,
     sizeId: searchParams.sizeId,
-    gender,
+    page: searchParams.page || 1,
+    limit: 12,
   });
 
   const sizes = await getSizes();
   const colors = await getColors();
-  const category = await getCategory(searchParams.categoryId);
 
   return (
     <div>
@@ -56,6 +56,11 @@ const CategoryPage = async ({ params, searchParams }: CatgegoryPageProps) => {
               {products.length === 0 && <NoResults />}
               <ProductsGrid products={products} />
             </div>
+            <Pagination
+              categoryId={params.categoryId}
+              currentPage={meta_data?.current_page}
+              totalPages={meta_data?.total_pages}
+            />
           </div>
         </Container>
       </ClientOnly>

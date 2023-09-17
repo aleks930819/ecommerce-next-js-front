@@ -40,7 +40,7 @@ const MainBillboard = ({ url }: { url: string }) => {
               onClick={() => {
                 router.push("/categories");
               }}
-              className='flex items-center  text-white gap-2 border py-4 px-2 text-lg rounded-sm animate-pop-up'
+              className='flex items-center  text-white gap-2 border py-4 px-2 text-lg rounded-sm animate-pop-up overflow-hidden'
               onMouseEnter={handleHover}
               onMouseLeave={handleMouseLeave}
             >

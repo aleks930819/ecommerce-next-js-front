@@ -52,3 +52,9 @@ export interface StaticPage {
   slug: string;
   content: string;
 }
+
+export interface MetaData {
+  total_count: number;
+  total_pages: number;
+  current_page: number;
+}

@@ -6,6 +6,10 @@ import Image from "next/image";
 
 import { Expand, Bookmark, ShoppingCart, Heart } from "lucide-react";
 
+import { useInView } from "react-intersection-observer";
+
+import { motion } from "framer-motion";
+
 import noImage from "@/assets/images/no-image-available.png";
 
 import { Product } from "@/types";
@@ -20,9 +24,11 @@ import { useQuickViewStore } from "@/hooks/use-qickview";
 
 interface ProductCardProps {
   data: Product;
+  index?: number;
+  animated?: boolean;
 }
 
-const ProductCard = ({ data }: ProductCardProps) => {
+const ProductCard = ({ data, index, animated }: ProductCardProps) => {
   const [showImage, setShowImage] = useState(data?.images[0]?.url);
 
   const router = useRouter();
@@ -30,6 +36,13 @@ const ProductCard = ({ data }: ProductCardProps) => {
   const { items, addItem } = useWishList();
   const openQuickView = useQuickViewStore((state) => state.openQuickView);
   const setProduct = useQuickViewStore((state) => state.setProduct);
+
+  let variants;
+
+  const [ref, inView] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
 
   const handleClickRedirect = () => {
     router.push(`/product/${data.id}`);
@@ -49,8 +62,23 @@ const ProductCard = ({ data }: ProductCardProps) => {
 
   const isItemInTheWishList = items?.some((item) => item.id === data.id);
 
+  if (animated && index) {
+    variants = {
+      hidden: { opacity: 0, y: 0 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5, delay: index * 0.1 },
+      },
+    };
+  }
+
   return (
-    <div
+    <motion.div
+      variants={variants}
+      initial='hidden'
+      animate={inView && animated ? "visible" : "hidden"}
+      ref={ref}
       onMouseEnter={changeImageOnHover}
       onMouseLeave={changeImageOnLeave}
       className='bg-white group cursor-pointer rounded-xl border  p-3 space-y-4
@@ -118,7 +146,7 @@ const ProductCard = ({ data }: ProductCardProps) => {
           </span>
         </p>
       </article>
-    </div>
+    </motion.div>
   );
 };
 

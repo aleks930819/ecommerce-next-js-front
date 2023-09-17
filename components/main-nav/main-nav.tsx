@@ -41,7 +41,7 @@ const MainNav = ({ data, className }: MainNavProps) => {
     {
       label: "Men",
       links: routes,
-      href: "/category/men",
+      href: "/category/",
       ref: menRef,
     },
   ];
@@ -52,8 +52,8 @@ const MainNav = ({ data, className }: MainNavProps) => {
         {categories.map((category) => (
           <li
             onMouseEnter={() => {
-              setCategory(category.label);
               handleToggleMenu(category);
+              setCategory(category.label);
             }}
             key={category.href}
             className={cn(

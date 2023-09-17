@@ -18,12 +18,8 @@ interface MobileNavProps {
 
 const linkCategories = [
   {
-    label: "Women",
-    href: "/category/women",
-  },
-  {
     label: "Men",
-    href: "/category/men",
+    href: "/category/",
   },
 ];
 
@@ -75,11 +71,7 @@ const MobileNav = ({ categories }: MobileNavProps) => {
                         <li key={category.id}>
                           <button
                             onClick={() =>
-                              router.push(
-                                `/category/${linkCategory.label.toLocaleLowerCase()}?categoryId=${
-                                  category.id
-                                }`
-                              )
+                              router.push(`/category/${category.id}`)
                             }
                           >
                             {category.name.toUpperCase()}

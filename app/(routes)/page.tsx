@@ -11,12 +11,13 @@ import News from "@/components/news/news";
 export const revalidate = 1;
 
 const HomePage = async () => {
-  const { products, pages } = await getProducts({
-    isFeatured: false,
+  const { products } = await getProducts({
     limit: 4,
   });
 
-  const billboard = await getBillboard("9f448bbd-f914-42fa-b578-bb7a2b6097b1");
+  console.log(products);
+
+  const billboard = await getBillboard("c6f110c6-759c-4205-9871-d1daeea1fbbf");
 
   return (
     <>

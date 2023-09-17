@@ -84,11 +84,11 @@ const QuickView = () => {
                 modules={[Navigation]}
                 className='aspect-square w-full h-[300px] lg:w-[450px] lg:h-[500px] overflow-hidden'
               >
-                {product.images.map((image, i) => (
+                {product?.images.map((image, i) => (
                   <SwiperSlide key={i}>
                     <Image
                       src={image.url}
-                      alt={product.name}
+                      alt={product?.name}
                       fill
                       className='object-cover '
                     />
@@ -100,7 +100,7 @@ const QuickView = () => {
                max-w-[450px] overflow-x-auto
               '
               >
-                {product.images.map((image, i) => (
+                {product?.images.map((image, i) => (
                   <div
                     key={i}
                     className={`relative h-[50px] w-[50px] lg:h-[100px] lg:w-[100px] overflow-hidden cursor-pointer
@@ -113,8 +113,8 @@ const QuickView = () => {
                     onClick={() => onImageClick(i)}
                   >
                     <Image
-                      src={image.url}
-                      alt={product.name}
+                      src={image?.url}
+                      alt={product?.name}
                       fill
                       className='object-cover object-center'
                     />
@@ -126,10 +126,10 @@ const QuickView = () => {
             <div className='flex flex-col  items-start lg:max-h-[500px] '>
               <h2 className='text-2xl lg:text-3xl font-bold  text-start mb-4 pt-2'>
                 <Link href='/' className='hover:text-primary-2 hover:underline'>
-                  {product.name}
+                  {product?.name}
                 </Link>
               </h2>
-              <p className='text-gray-5 mb-6'>{product.description}</p>
+              <p className='text-gray-5 mb-6'>{product?.description}</p>
 
               {/* PRODUCT ACTIONS */}
               <div className='flex  flex-col items-start pb-4 lg:pb-0 lg:mb-6 gap-5 lg:gap-0 lg:flex-row lg:items-center justify-between w-full'>
@@ -147,7 +147,15 @@ const QuickView = () => {
                   <span>
                     <LayoutPanelLeft size={20} />
                   </span>
-                  <span>Category:</span>
+                  <span>
+                    Category:{" "}
+                    <span className=''>
+                      {product?.category?.name
+                        .split(" ")
+                        .map((word) => word[0].toUpperCase() + word.slice(1))
+                        .join(" ")}
+                    </span>
+                  </span>
                 </p>
 
                 <div className='flex  lg:gap-4'>

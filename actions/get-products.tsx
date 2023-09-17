@@ -1,4 +1,4 @@
-import { Product } from "@/types";
+import { MetaData, Product } from "@/types";
 
 import qs from "query-string";
 
@@ -12,34 +12,26 @@ interface Query {
   sizeId?: string;
   gender?: string;
   limit?: number;
-  page?: number;
+  page?: number | string;
   isFeatured?: boolean;
 }
 
 export const getProducts = async (
   query: Query
-): Promise<{ products: Product[]; pages: number }> => {
-  // TODO: FIX THE QUERY
-
-  let gender;
-  if (query.gender === "women" || query.gender === "FEMALE") {
-    gender = "FEMALE";
-  } else if (query.gender === "men" || query.gender === "MALE") {
-    gender = "MALE";
-  }
-
+): Promise<{ products: Product[]; meta_data: MetaData }> => {
   const url = qs.stringifyUrl({
     url: URL,
     query: {
       colorId: query.colorId,
       sizeId: query.sizeId,
-      gender,
       categoryId: query.categoryId,
       isFeatured: query.isFeatured,
       limit: query.limit || 12,
-      page: query.page || 0,
+      page: query.page || 1,
     },
   });
+
+  console.log(url);
 
   const response = await fetch(url);
 

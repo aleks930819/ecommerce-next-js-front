@@ -38,11 +38,7 @@ const BottomNav = ({
              dark:hover:text-gray-300 transition duration-300 ease-in-out
             '
           >
-            <Link
-              href={`/category/${activeCategory.toLocaleLowerCase()}?categoryId=${
-                category.id
-              }`}
-            >
+            <Link href={`/category/${category.id}`}>
               {category.name.toUpperCase()}
             </Link>
           </li>
@@ -50,7 +46,7 @@ const BottomNav = ({
       </ul>
       <figure className='w-[200px] h-full relative rounded-md shadow-md'>
         <Image
-          src={activeCategory.toLowerCase() === "women" ? womanImage : manImage}
+          src={manImage}
           alt='image'
           width={200}
           height={200}

@@ -6,6 +6,7 @@ import Container from "@/components/ui/container";
 import ProductDetails from "@/components/products/product-details";
 import SudgestedProducts from "@/components/sudgested-products/sudgested-products";
 import { getProducts } from "@/actions/get-products";
+import { Product } from "@/types";
 
 interface ProductPageProps {
   params: {
@@ -22,12 +23,11 @@ const ProductPage = async ({ params }: ProductPageProps) => {
   const { products: sudgestedProducts } = await getProducts({
     isFeatured: true,
     categoryId: product?.category.id,
-    gender: product?.gender,
     limit: 4,
   });
 
   const filteredProducts = sudgestedProducts?.filter(
-    (suggestedProduct) => suggestedProduct.id !== product.id
+    (suggestedProduct: Product) => suggestedProduct.id !== product.id
   );
 
   return (
@@ -36,7 +36,10 @@ const ProductPage = async ({ params }: ProductPageProps) => {
         {/* PRODUCT */}
         <ProductDetails product={product} />
         {/* SUGGESTED PRODUCTS */}
-        <SudgestedProducts data={filteredProducts} />
+
+        {filteredProducts.length >= 1 && (
+          <SudgestedProducts data={filteredProducts} />
+        )}
       </Container>
     </section>
   );

@@ -4,28 +4,16 @@ import Image from "next/image";
 import { Minus, Plus, X } from "lucide-react";
 
 import { Product } from "@/types";
-import useCart from "@/hooks/user-cart";
+import useCart, { CartItem } from "@/hooks/user-cart";
 
 interface CheckoutMenuItemProps {
-  product: Product;
+  product: CartItem;
 }
 
 const CheckoutMenuItem = ({ product }: CheckoutMenuItemProps) => {
-  const [quantity, setQuantity] = useState<number>(1);
-
   const removeItem = useCart((state) => state.removeItem);
-
-  const onDecrement = () => {
-    if (quantity > 1) {
-      setQuantity((prev) => prev - 1);
-    }
-  };
-
-  const onIncrement = () => {
-    if (quantity < 30) {
-      setQuantity((prev) => prev + 1);
-    }
-  };
+  const increaseItemQuantity = useCart((state) => state.increaseItemQuantity);
+  const decreaseItemQuantity = useCart((state) => state.decreaseItemQuantity);
 
   return (
     <div className='flex w-full justify-between'>
@@ -53,13 +41,23 @@ const CheckoutMenuItem = ({ product }: CheckoutMenuItemProps) => {
         </div>
       </div>
       <div className='flex gap-2 justify-between items-center w-24 px-2 bg-primary-4'>
-        <button onClick={onDecrement} aria-label='Decrement quantity'>
+        <button
+          onClick={() => {
+            decreaseItemQuantity(product.id);
+          }}
+          aria-label='Decrement quantity'
+        >
           <Minus size={16} />
         </button>
         <p>
-          <strong>{quantity}</strong>
+          <strong>{product.cartItemQuantity}</strong>
         </p>
-        <button onClick={onIncrement} aria-label='Increment quantity'>
+        <button
+          onClick={() => {
+            increaseItemQuantity(product.id);
+          }}
+          aria-label='Increment quantity'
+        >
           <Plus size={16} />
         </button>
       </div>

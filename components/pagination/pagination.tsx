@@ -17,7 +17,7 @@ const Pagination = ({
   const searchParams = useSearchParams();
   const page = searchParams.get("page");
 
-  if (totalPages === 1) {
+  if (totalPages === 1 || totalPages === 0) {
     return null;
   }
 

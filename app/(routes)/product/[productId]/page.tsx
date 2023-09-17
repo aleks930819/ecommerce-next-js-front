@@ -21,10 +21,11 @@ const ProductPage = async ({ params }: ProductPageProps) => {
   const product = await getProduct(params.productId);
 
   const { products: sudgestedProducts } = await getProducts({
-    isFeatured: true,
     categoryId: product?.category.id,
     limit: 4,
   });
+
+  console.log(sudgestedProducts);
 
   const filteredProducts = sudgestedProducts?.filter(
     (suggestedProduct: Product) => suggestedProduct.id !== product.id
@@ -37,7 +38,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
         <ProductDetails product={product} />
         {/* SUGGESTED PRODUCTS */}
 
-        {filteredProducts.length >= 1 && (
+        {filteredProducts.length > 0 && (
           <SudgestedProducts data={filteredProducts} />
         )}
       </Container>

@@ -15,7 +15,7 @@ import noImage from "@/assets/images/no-image-available.png";
 import { Product } from "@/types";
 
 import { cn, formatPrice } from "@/lib/utils";
-import useCart from "@/hooks/user-cart";
+import useCart, { CartItem } from "@/hooks/user-cart";
 
 import IconButton from "@/components/ui/icon-button";
 import ClientOnly from "@/components/client-only/client-only";
@@ -49,7 +49,7 @@ const ProductCard = ({ data, index, animated }: ProductCardProps) => {
   };
 
   const onAddToCart: MouseEventHandler<HTMLButtonElement> = () => {
-    cart.addItem(data);
+    cart.addItem(data as CartItem);
   };
 
   const changeImageOnHover = () => {

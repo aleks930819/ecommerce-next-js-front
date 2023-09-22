@@ -72,9 +72,15 @@ const MobileNav = ({ categories }: MobileNavProps) => {
                   <ul className='flex flex-col gap-4 text-lg'>
                     {linkCategories.map((linkCategory) => (
                       <li key={linkCategory.href}>
-                        <h2 className='dark:text-white text-start  text-2xl font-bold hover:text-gray-400 mb-4'>
-                          {linkCategory.label}
-                        </h2>
+                        <button
+                          aria-label='Go to homepage'
+                          onClick={() => router.push("/")}
+                          className='text-2xl font-bold font-serif mb-4 mt-4'
+                        >
+                          <p className='text-xl font-bold font-serif '>
+                            UrbanTrend Emporium
+                          </p>
+                        </button>
                         {categories.map((category) => (
                           <li key={category.id} className='mb-4 pb-1 border-b'>
                             <button

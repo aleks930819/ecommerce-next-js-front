@@ -29,8 +29,8 @@ const categories = {
 
 const CategoriesPage = () => {
   return (
-    <section className='max-w-7xl mx-auto pb-20 pt-20'>
-      <div className='grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-8'>
+    <section className='max-w-7xl  mx-auto pb-20 pt-20'>
+      <div className='grid grid-cols-2 p-4 gap-4 lg:p-0 lg:grid-cols-4 lg:gap-8'>
         <CategoriesItem
           image={categories.tShirts.image}
           name={categories.tShirts.name}

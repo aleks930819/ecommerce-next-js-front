@@ -1,5 +1,3 @@
-// useWindowDimension.js
-
 import { useState, useEffect } from "react";
 
 export default function useWindowDimension() {

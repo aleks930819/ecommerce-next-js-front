@@ -18,7 +18,7 @@ const NewsItem = ({
   return (
     <div
       className='flex flex-col
-       hover:scale-105 transition-all duration-150
+       lg:hover:scale-105 transition-all duration-150
       justify-center items-center bg-cover bg-center bg-no-repeat h-96 w-full lg:w-1/2 relative'
     >
       <Image

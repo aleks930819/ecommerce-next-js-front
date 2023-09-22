@@ -30,7 +30,7 @@ const MainBillboard = ({ url }: { url: string }) => {
           className={`flex  h-full  flex-col mt-[50vh] ml-[10px] lg:ml-[100px] w-full lg:w-[40%]
           ${isHovered ? "hovered" : ""}`}
         >
-          <h2 className='text-3xl lg:text-4xl  font-extrabold text-white mb-5 animate-slide-in-top'>
+          <h2 className='text-2xl lg:text-4xl  font-extrabold text-white mb-5 animate-slide-in-top'>
             Discover the Latest Trends
           </h2>
 
@@ -41,7 +41,7 @@ const MainBillboard = ({ url }: { url: string }) => {
               onClick={() => {
                 router.push("/categories");
               }}
-              className='flex items-center  text-white gap-2 border py-4 px-2 text-lg rounded-sm animate-pop-up overflow-hidden'
+              className='flex items-center  text-white gap-2 border py-4 px-2 text-base sm:text-lg rounded-sm animate-pop-up overflow-hidden'
               onMouseEnter={handleHover}
               onMouseLeave={handleMouseLeave}
             >

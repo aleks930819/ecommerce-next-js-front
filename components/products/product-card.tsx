@@ -21,6 +21,7 @@ import IconButton from "@/components/ui/icon-button";
 import ClientOnly from "@/components/client-only/client-only";
 import useWishList from "@/hooks/use-wishlist";
 import { useQuickViewStore } from "@/hooks/use-qickview";
+import useWindowDimension from "@/hooks/useWindowDemension";
 
 interface ProductCardProps {
   data: Product;
@@ -36,6 +37,9 @@ const ProductCard = ({ data, index, animated }: ProductCardProps) => {
   const { items, addItem } = useWishList();
   const openQuickView = useQuickViewStore((state) => state.openQuickView);
   const setProduct = useQuickViewStore((state) => state.setProduct);
+  const { width } = useWindowDimension();
+
+  const isMobile = width < 640;
 
   let variants;
 
@@ -79,8 +83,8 @@ const ProductCard = ({ data, index, animated }: ProductCardProps) => {
       initial='hidden'
       animate={inView && animated ? "visible" : "hidden"}
       ref={ref}
-      onMouseEnter={changeImageOnHover}
-      onMouseLeave={changeImageOnLeave}
+      onMouseEnter={!isMobile ? changeImageOnHover : undefined}
+      onMouseLeave={!isMobile ? changeImageOnLeave : undefined}
       className='bg-white group cursor-pointer rounded-xl border  p-3 space-y-4
     dark:bg-gray-800 dark:border-gray-800 dark:hover:bg-gray-700
      transition duration-150 ease-in-out hover:shadow-x
@@ -96,7 +100,7 @@ const ProductCard = ({ data, index, animated }: ProductCardProps) => {
           className='object-cover w-full h-full'
           onClick={handleClickRedirect}
         />
-        <div className='opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5'>
+        <div className='hidden sm:block opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5'>
           <div className='flex gap-x-4 justify-center'>
             <IconButton
               onClick={() => {

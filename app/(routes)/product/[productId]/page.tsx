@@ -21,7 +21,7 @@ export const generateMetadata = async ({ params }: { params: any }) => {
       title: product?.name,
       description: product?.description.substring(0, 120),
       image: product?.images[0]?.url,
-      images: [product?.images[0]?.url],
+      images: product?.images[0]?.url,
       site_name: "UrbanTrend Emporium",
     },
   };
@@ -49,23 +49,16 @@ const ProductPage = async ({ params }: ProductPageProps) => {
   );
 
   return (
-    <>
-      <Head>
-        <meta property='og:image' content={product?.images[0]?.url} />
-        <meta property='og:image:width' content='400' />
-        <meta property='og:image:height' content='300' />
-      </Head>
-      <section className='h-full'>
-        <Container>
-          {/* PRODUCT */}
-          <ProductDetails product={product} />
-          {/* SUGGESTED PRODUCTS */}
-          {filteredProducts.length > 0 && (
-            <SudgestedProducts data={filteredProducts} />
-          )}
-        </Container>
-      </section>
-    </>
+    <section className='h-full'>
+      <Container>
+        {/* PRODUCT */}
+        <ProductDetails product={product} />
+        {/* SUGGESTED PRODUCTS */}
+        {filteredProducts.length > 0 && (
+          <SudgestedProducts data={filteredProducts} />
+        )}
+      </Container>
+    </section>
   );
 };
 

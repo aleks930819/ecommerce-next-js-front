@@ -13,8 +13,9 @@ export const generateMetadata = async ({ params }: { params: any }) => {
 
   return {
     title: product?.name,
-    description: product?.description,
+    description: product?.description.substring(0, 100),
     image: product?.images[0]?.url,
+    imageUrl: product?.images[0]?.url,
   };
 };
 

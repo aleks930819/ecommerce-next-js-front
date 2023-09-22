@@ -35,7 +35,7 @@ const CookieConsent = () => {
       '
       >
         <div
-          className='fixed bottom-0 left-0 right-0 flex  items-start justify-between px-4 py-8 bg-gray-100
+          className='fixed bottom-0 left-0 right-0 flex flex-col sm:flex-row  items-start justify-between px-4 py-8 bg-gray-100
         dark:bg-gray-800 dark:text-white
         '
         >
@@ -56,7 +56,7 @@ const CookieConsent = () => {
             title='Accept Cookies'
             aria-label='Accept Cookies'
             onClick={acceptCookie}
-            className=' dark:bg-[#204179] rounded-sm dark:hover:bg-[#204179]/90 transition-colors px-4 py-2'
+            className=' dark:bg-[#204179] rounded-sm dark:hover:bg-[#204179]/90 transition-colors px-4 py-2 mt-4 sm:mt-0 '
           >
             Accept
           </button>

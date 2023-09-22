@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { Product } from "@/types";
 
 import useWishList from "@/hooks/use-wishlist";
-import useCart from "@/hooks/user-cart";
+import useCart, { CartItem } from "@/hooks/user-cart";
 
 interface ProductDetailsActionsProps {
   product: Product;
@@ -32,13 +32,13 @@ const ProductDetailsActions = ({
         className='px-8 py-2 gap-4
      dark:bg-gray-100 dark:text-gray-600
      dark:hover:bg-gray-300'
-        onClick={() => cart(product as any)}
+        onClick={() => cart(product as CartItem)}
       >
         ADD TO CART
         <ShoppingCart size={24} />
       </Button>
       <Button
-        onClick={() => addItem(product as any)}
+        onClick={() => addItem(product as CartItem)}
         className='cursor-pointer group bg-gray-400
    hover:bg-gray-400 dark:bg-gray-100 dark:hover:bg-gray-200
     text-center p-2 rounded-full '

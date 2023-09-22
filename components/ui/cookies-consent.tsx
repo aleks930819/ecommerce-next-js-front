@@ -45,18 +45,19 @@ const CookieConsent = () => {
             <span>
               <Link
                 href='/privacy-policy'
-                className='text-blue-500 hover:text-blue-600'
+                className='text-[#CBD9F1] hover:text-[#CBD9F1]/90 transition-colors'
               >
                 Privacy Policy
               </Link>
             </span>
           </span>
-          <Button
-            className='px-4 py-2 mt-2 rounded-md text-sm font-medium'
+          <button
+            aria-label='Accept Cookies'
             onClick={acceptCookie}
+            className=' dark:bg-[#204179] rounded-sm dark:hover:bg-[#204179]/90 transition-colors px-4 py-2'
           >
             Accept
-          </Button>
+          </button>
         </div>
       </div>
     </ClientOnly>

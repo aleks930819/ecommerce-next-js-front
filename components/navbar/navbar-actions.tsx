@@ -24,7 +24,7 @@ const NavbarActions = () => {
       <div className='ml-auto flex gap-4 sm:gap-0 flex-col sm:flex-row  w-full justify-start items-start sm:justify-end sm:items-end mt-5 sm:mt-0 '>
         <Button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          aria-label='Toggle Dark Mode'
+          aria-label={`Toggle ${theme === "dark" ? "Light" : "Dark"} Mode`}
           className='bg-transparent text-black border gap-0
 
           dark:text-white dark:border-white
@@ -51,7 +51,7 @@ const NavbarActions = () => {
         </Button>
         <Button
           onClick={() => router.push("/wishlist")}
-          aria-label='Change Language'
+          aria-label='Wishlist'
           className='bg-transparent text-black border gap-0
       border-none hover:bg-transparent hover:text-black transition-colors
        dark:text-white dark:border-white
@@ -63,7 +63,7 @@ const NavbarActions = () => {
 
         <Button
           onClick={() => openCheckoutMenu()}
-          aria-label='Open Cart'
+          aria-label={`Open Cart with ${cart.items.length} items`}
           className='bg-transparent text-black 
       dark:text-white sm:dark:border-white 
        hover:bg-transparent hover:text-black transition-colors'

@@ -50,7 +50,6 @@ const ProductPage = async ({ params }: ProductPageProps) => {
 
   return (
     <>
-      <meta property='og:image' content={product?.images[0]?.url} />
       <section className='h-full'>
         <Container>
           {/* PRODUCT */}

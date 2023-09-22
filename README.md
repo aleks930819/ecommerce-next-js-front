@@ -15,7 +15,11 @@
 
 </p>
 
-# Ecommerce Next.js Front
+## Table of Contents
+
+- [Project Structure](#project-structure)
+- [Project Features](#project-features)
+- [Projects Features to be implemented](#projects-features-to-be-implemented)
 
 ## <i>[UrbanTrend Emporium](https://ecommerce-next-js-front.vercel.app/)</i>
 
@@ -47,6 +51,8 @@
 - [ ] User Order History
 - [ ] Product Reviews
 - [ ] Product Search
+
+<a name="project-structure"></a>
 
 # Project Structure
 

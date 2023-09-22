@@ -5,12 +5,13 @@ import { Urbanist } from "next/font/google";
 
 import "./globals.css";
 
+import { ScrollToTop } from "@/utils/scroll-to-top";
+
 import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navbar/navbar";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import ToastProvider from "@/providers/toast-provider";
 import ScrollToTopButton from "@/components/ui/scroll-to-top-button";
-import ContactUsButton from "@/components/contact-us/contact-us-button";
 import CheckoutMenu from "@/components/checkout-menu/checkout-menu";
 import QuickView from "@/components/quick-view/quick-view";
 
@@ -35,6 +36,8 @@ export default function RootLayout({
       </head>
       <body className={font.className}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          {/*@ts-ignore */}
+          <ScrollToTop />
           <ToastProvider />
           <ScrollToTopButton />
           <Navbar />

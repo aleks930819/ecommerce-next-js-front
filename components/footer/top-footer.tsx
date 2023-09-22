@@ -18,7 +18,7 @@ const TopFooter = () => {
       <Container>
         <div className='flex flex-col  sm:flex-row justify-between items-center gap-4'>
           {/* LINKS */}
-          <div className='flex flex-wrap w-full gap-10'>
+          <div className='flex flex-wrap w-full sm:w-auto gap-10'>
             <FooterLinks title='Help & Info' links={helpAndInfoLinks} />
             <FooterLinks title='More' links={moreLinks} />
           </div>

@@ -110,7 +110,7 @@ const ProductCard = ({ data, index, animated }: ProductCardProps) => {
           height={300}
           loading='lazy'
           onClick={handleClickRedirect}
-          className='hidden sm:group-hover:block object-cover w-full h-full absolute top-0 left-0   transition duration-1000 ease-in-out'
+          className='hidden group-hover:block object-cover w-full h-full absolute top-0 left-0   transition duration-1000 ease-in-out'
         />
         <div className='hidden sm:block opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5'>
           <div className='flex gap-x-4 justify-center'>

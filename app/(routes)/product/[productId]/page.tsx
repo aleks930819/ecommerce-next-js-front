@@ -49,16 +49,19 @@ const ProductPage = async ({ params }: ProductPageProps) => {
   );
 
   return (
-    <section className='h-full'>
-      <Container>
-        {/* PRODUCT */}
-        <ProductDetails product={product} />
-        {/* SUGGESTED PRODUCTS */}
-        {filteredProducts.length > 0 && (
-          <SudgestedProducts data={filteredProducts} />
-        )}
-      </Container>
-    </section>
+    <>
+      <meta property='og:image' content={product?.images[0]?.url} />
+      <section className='h-full'>
+        <Container>
+          {/* PRODUCT */}
+          <ProductDetails product={product} />
+          {/* SUGGESTED PRODUCTS */}
+          {filteredProducts.length > 0 && (
+            <SudgestedProducts data={filteredProducts} />
+          )}
+        </Container>
+      </section>
+    </>
   );
 };
 

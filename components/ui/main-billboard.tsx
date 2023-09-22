@@ -19,14 +19,7 @@ const MainBillboard = ({ url }: { url: string }) => {
 
   return (
     <div className='h-screen z-0'>
-      <div
-        className='h-full w-full relative flex items-center '
-        // style={{
-        //   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${url})`,
-        //   backgroundSize: "cover",
-        //   backgroundPosition: "20% 20%",
-        // }}
-      >
+      <div className='h-full w-full relative flex items-center '>
         <div className='absolute inset-0'>
           <Image
             src={url}
@@ -46,7 +39,7 @@ const MainBillboard = ({ url }: { url: string }) => {
 
           <div>
             <button
-              aria-label='go to categories button'
+              aria-label='Shop Now'
               title='Go to categories'
               onClick={() => {
                 router.push("/categories");

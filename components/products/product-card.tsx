@@ -1,10 +1,11 @@
 "use client";
+
 import { MouseEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import Image from "next/image";
 
-import { Expand, Bookmark, ShoppingCart, Heart } from "lucide-react";
+import { Expand, ShoppingCart, Heart } from "lucide-react";
 
 import { useInView } from "react-intersection-observer";
 

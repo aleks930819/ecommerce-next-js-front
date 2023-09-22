@@ -2,15 +2,18 @@ import Image from "next/image";
 
 import tShirts from "/public/images/t-shirts.jpg";
 import jeans from "/public/images/jeans.jpg";
+import Link from "next/link";
 
 const NewsItem = ({
   image,
   text,
   buttonAction,
+  to,
 }: {
   image: string;
   text: string;
   buttonAction: string;
+  to: string;
 }) => {
   return (
     <div
@@ -30,14 +33,15 @@ const NewsItem = ({
         <h3 className='text-2xl lg:text-4xl font-semibold text-gray-100 dark:text-white mb-4'>
           {text}
         </h3>
-        <button
+        <Link
+          href={to}
           className='px-6 py-3 bg-gray-200 text-black dark:bg-white dark:text-black rounded-sm font-bold
         hover:bg-gray-300 transition-colors duration-250 ease-in-out
          dark:hover:bg-black dark:hover:text-white
         '
         >
           {buttonAction}
-        </button>
+        </Link>
       </div>
     </div>
   );
@@ -51,11 +55,13 @@ const News = () => {
           image={tShirts.src}
           text='New T-Shirts Collection'
           buttonAction='Explore Now'
+          to={"/category/b3b6071a-9a48-4bf8-8bbe-46587381cefc"}
         />
         <NewsItem
           image={jeans.src}
           text='25% off on Jeans'
           buttonAction='Shop Now'
+          to={"/category/09cc1b64-6043-4aed-a1a2-c5f71e8cc296"}
         />
       </div>
     </div>

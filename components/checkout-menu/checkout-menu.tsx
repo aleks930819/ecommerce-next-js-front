@@ -66,7 +66,9 @@ const CheckoutMenu = () => {
         <div className='pb-5'>
           <p className='w-full flex justify-between'>
             <span className=' font-semibold'>Total: </span>
-            <span className=' font-bold'>$ {totalCartItemsPrice}</span>
+            <span className=' font-bold'>
+              $ {Math.ceil(totalCartItemsPrice).toFixed(2)}
+            </span>
           </p>
           {/* CHECKOUT MENU ACTIONS */}
           <div className=' flex flex-col gap-4 mt-4'>

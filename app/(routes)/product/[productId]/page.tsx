@@ -7,6 +7,7 @@ import ProductDetails from "@/components/products/product-details";
 import SudgestedProducts from "@/components/sudgested-products/sudgested-products";
 import { getProducts } from "@/actions/get-products";
 import { Product } from "@/types";
+import Head from "next/head";
 
 export const generateMetadata = async ({ params }: { params: any }) => {
   const product = await getProduct(params.productId);
@@ -48,16 +49,23 @@ const ProductPage = async ({ params }: ProductPageProps) => {
   );
 
   return (
-    <section className='h-full'>
-      <Container>
-        {/* PRODUCT */}
-        <ProductDetails product={product} />
-        {/* SUGGESTED PRODUCTS */}
-        {filteredProducts.length > 0 && (
-          <SudgestedProducts data={filteredProducts} />
-        )}
-      </Container>
-    </section>
+    <>
+      <Head>
+        <meta property='og:image' content={product?.images[0]?.url} />
+        <meta property='og:image:width' content='400' />
+        <meta property='og:image:height' content='300' />
+      </Head>
+      <section className='h-full'>
+        <Container>
+          {/* PRODUCT */}
+          <ProductDetails product={product} />
+          {/* SUGGESTED PRODUCTS */}
+          {filteredProducts.length > 0 && (
+            <SudgestedProducts data={filteredProducts} />
+          )}
+        </Container>
+      </section>
+    </>
   );
 };
 

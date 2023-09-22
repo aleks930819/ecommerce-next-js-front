@@ -77,7 +77,7 @@ const Subscribe = () => {
                 </button>
               </div>
             </div>
-            <div className='mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer dark:text-gray-300'>
+            <div className='mx-auto text-black max-w-screen-sm text-sm text-left  newsletter-form-footer dark:text-white'>
               We care about the protection of your data.{" "}
               <Link
                 href='/privacy-policy'

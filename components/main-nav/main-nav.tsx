@@ -50,7 +50,7 @@ const MainNav = ({ data, className }: MainNavProps) => {
   return (
     <nav className='mx-6 mr-auto flex   gap-4 sm:gap-0 flex-col sm:flex-row justify-center items-center space-x-4 lg:space-x-6'>
       <ul className='flex gap-2'>
-        <li className=''>
+        <li className='font-serif tracking-wider'>
           <Link href='/categories'>CATEGORIES</Link>
         </li>
       </ul>

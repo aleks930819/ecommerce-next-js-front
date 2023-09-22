@@ -34,7 +34,7 @@ const Pagination = ({
   };
 
   return (
-    <div className='flex items-center justify-center mt-10'>
+    <nav className='flex items-center justify-center mt-10'>
       <div className='flex rounded-md'>
         <button
           disabled={currentPage === 1}
@@ -50,7 +50,12 @@ const Pagination = ({
         </button>
         <div className='flex gap-2'>
           {[...Array(totalPages)].map((_, i) => (
-            <button key={i} onClick={() => handlePage(i + 1)}>
+            <button
+              key={i}
+              onClick={() => handlePage(i + 1)}
+              className={`${currentPage === i + 1 ? "scale-110 " : ""}
+              `}
+            >
               <span
                 className={`${
                   currentPage === i + 1
@@ -78,7 +83,7 @@ const Pagination = ({
           </span>
         </button>
       </div>
-    </div>
+    </nav>
   );
 };
 

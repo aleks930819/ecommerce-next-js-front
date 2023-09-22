@@ -47,7 +47,7 @@ const QuickView = () => {
       const interval = setTimeout(() => {
         setActiveImageIndex(0);
         swiperRef.current?.swiper.slideTo(0);
-      }, 600);
+      }, 400);
 
       return () => {
         clearTimeout(interval);

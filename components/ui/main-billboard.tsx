@@ -24,6 +24,7 @@ const MainBillboard = ({ url }: { url: string }) => {
           <Image
             src={url}
             alt='Main Image'
+            loading='eager'
             layout='fill'
             objectFit='cover '
             className='h-full w-full object-cover -z-10 filter brightness-50'

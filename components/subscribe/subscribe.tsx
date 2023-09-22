@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 const isNotValidEmail = (email: string): boolean => {
   const re =
@@ -15,7 +16,7 @@ const Subscribe = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!email) {
+    if (!email || isNotValidEmail(email)) {
       return toast.error("Please enter a valid email");
     }
 
@@ -78,12 +79,12 @@ const Subscribe = () => {
             </div>
             <div className='mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer dark:text-gray-300'>
               We care about the protection of your data.{" "}
-              <a
-                href='#'
+              <Link
+                href='/privacy-policy'
                 className='font-medium text-primary-600 dark:text-primary-500 hover:underline'
               >
                 Read our Privacy Policy
-              </a>
+              </Link>
               .
             </div>
           </form>

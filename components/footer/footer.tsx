@@ -16,7 +16,7 @@ const Footer = () => {
         <Container>
           <div className='flex flex-col gap-4 sm:gap-0 sm:flex-row justify-between'>
             <div className=''>
-              <p className='text-center text-base '>
+              <p className='text-center text-base font-semibold'>
                 &copy; {new Date().getFullYear()} UrbanTrend Emporium. All
                 rights
               </p>
@@ -27,7 +27,7 @@ const Footer = () => {
                 <Link
                   target='_blank'
                   href='https://github.com/aleks930819'
-                  className='text-blue-500 hover:text-blue-600 transition duration-150 ease-in-out'
+                  className='text-black font-bold dark:text-blue-500 dark:hover:text-blue-600 transition duration-150 ease-in-out'
                 >
                   @alex
                 </Link>

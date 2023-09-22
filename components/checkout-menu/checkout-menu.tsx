@@ -85,7 +85,7 @@ const CheckoutMenu = () => {
 
             <Button
               onClick={removeAll}
-              aria-label='View shopping cart'
+              aria-label='Clear shopping cart'
               className='dark:bg-white dark:text-black dark:hover:bg-gray-600 dark:hover:text-white bg-black text-white  hover:bg-black/90 transition-colors duration-200 ease-in-out'
             >
               Clear shopping cart

@@ -1,7 +1,7 @@
 "use client";
 
 import Head from "next/head";
-import type { Metadata } from "next";
+
 
 import useCart from "@/hooks/user-cart";
 
@@ -10,10 +10,6 @@ import Container from "@/components/ui/container";
 import CartItem from "@/components/cart/cart-item";
 import Summary from "@/components/cart/summary";
 
-export const metadata: Metadata = {
-  title: "Shopping Cart",
-  description: "Shopping Cart",
-};
 
 const CartPage = () => {
   const cart = useCart();

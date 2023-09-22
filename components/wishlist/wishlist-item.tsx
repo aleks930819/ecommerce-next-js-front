@@ -29,6 +29,7 @@ const WishlistItem = ({ data }: WishlistItemProps) => {
   const onAddToCart = () => {
     addItem(data as CartItem);
   };
+  // test
 
   return (
     <li className='flex flex-col mb-10'>

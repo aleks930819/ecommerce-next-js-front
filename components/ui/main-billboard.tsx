@@ -18,7 +18,7 @@ const MainBillboard = ({ url }: { url: string }) => {
   };
 
   return (
-    <div className='h-screen z-0'>
+    <div className='h-[40vh] sm:h-screen z-0'>
       <div className='h-full w-full relative flex items-center '>
         <div className='absolute inset-0'>
           <Image
@@ -31,10 +31,10 @@ const MainBillboard = ({ url }: { url: string }) => {
           />
         </div>
         <div
-          className={`flex  h-full  flex-col mt-[50vh] ml-[10px] lg:ml-[100px] w-full lg:w-[40%]
+          className={`flex  h-full  flex-col mt-[40vh] sm:mt-[50vh] ml-[10px] lg:ml-[100px] w-full lg:w-[40%]
           ${isHovered ? "hovered" : ""}`}
         >
-          <h2 className='text-2xl lg:text-4xl  font-extrabold text-white mb-5 animate-slide-in-top'>
+          <h2 className='text-xl lg:text-4xl  font-extrabold text-white mb-5 animate-slide-in-top'>
             Discover the Latest Trends
           </h2>
 
@@ -45,7 +45,7 @@ const MainBillboard = ({ url }: { url: string }) => {
               onClick={() => {
                 router.push("/categories");
               }}
-              className='flex items-center  text-white gap-2 border py-4 px-2 text-base sm:text-lg rounded-sm animate-pop-up overflow-hidden'
+              className='flex items-center  text-white gap-2 border py-2 px-2 sm:py-4 sm:px-2 text-base sm:text-lg rounded-sm animate-pop-up overflow-hidden'
               onMouseEnter={handleHover}
               onMouseLeave={handleMouseLeave}
             >

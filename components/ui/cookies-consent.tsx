@@ -39,7 +39,10 @@ const CookieConsent = () => {
         dark:bg-gray-800 dark:text-white
         '
         >
-          <span className='text-black dark:text-white text-base mr-16'>
+          <span
+            aria-label='Cookie Consent'
+            className='text-black dark:text-white text-base mr-16'
+          >
             {`This website uses cookies to improve user experience. By using our
   website you consent to all cookies in accordance with our`}{" "}
             <span>
@@ -52,11 +55,12 @@ const CookieConsent = () => {
             </span>
           </span>
           <button
+            aria-labelledby='Accept Cookies'
             role='button'
             aria-roledescription='Accept Cookies'
             aria-label='Accept Cookies'
             onClick={acceptCookie}
-            className='bg-black text-white dark:text-white dark:bg-[#204179] rounded-sm dark:hover:bg-[#204179]/90 transition-colors px-4 py-2 mt-4 sm:mt-0 '
+            className='bg-black text-white dark:text-white dark:bg-[#204179] rounded-sm dark:hover:bg-[#204179]/90 transition-colors px-4 py-2 mt-4 sm:mt-0'
           >
             Accept Cookies
           </button>

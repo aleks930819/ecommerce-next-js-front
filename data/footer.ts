@@ -7,7 +7,7 @@ export const helpAndInfoLinks: FooterLink[] = [
     url: "/delivery",
     href: "delivery-information",
   },
-  { text: "Contact Us", url: "/contact", href: "/contact-us" },
+  { text: "Contact Us", url: "/contact", href: "/" },
   { text: "Privacy & Cookies", url: "/privacy", href: "/privacy-policy" },
 ];
 

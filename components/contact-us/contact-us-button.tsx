@@ -8,7 +8,6 @@ import IconButton from "@/components/ui/icon-button";
 const ContactUsButton = () => {
   const [showContactUsMessage, setShowContactUsMessage] = useState(false);
 
-  console.log(showContactUsMessage);
   return (
     <>
       <IconButton

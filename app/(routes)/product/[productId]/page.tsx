@@ -1,13 +1,13 @@
 import React from "react";
 
 import { getProduct } from "@/actions/get-proudct";
+import { getProducts } from "@/actions/get-products";
+
+import { Product } from "@/types";
 
 import Container from "@/components/ui/container";
 import ProductDetails from "@/components/products/product-details";
 import SudgestedProducts from "@/components/sudgested-products/sudgested-products";
-import { getProducts } from "@/actions/get-products";
-import { Product } from "@/types";
-import Head from "next/head";
 
 export const generateMetadata = async ({ params }: { params: any }) => {
   const product = await getProduct(params.productId);
@@ -17,7 +17,7 @@ export const generateMetadata = async ({ params }: { params: any }) => {
     description: product?.description.substring(0, 120),
     openGraph: {
       type: "website",
-      url: `${process.env.NEXT_PUBLIC_API_URL}/product/${product?.id}`,
+      url: `${process.env.NEXT_PUBLIC_URL}/product/${product?.id}`,
       title: product?.name,
       description: product?.description.substring(0, 120),
       image: product?.images[0]?.url,
@@ -47,8 +47,6 @@ const ProductPage = async ({ params }: ProductPageProps) => {
   const filteredProducts = sudgestedProducts?.filter(
     (suggestedProduct: Product) => suggestedProduct.id !== product.id
   );
-
-  console.log(filteredProducts.length > 0);
 
   return (
     <>

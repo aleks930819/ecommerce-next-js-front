@@ -37,9 +37,6 @@ const ProductCard = ({ data, index, animated }: ProductCardProps) => {
   const { items, addItem } = useWishList();
   const openQuickView = useQuickViewStore((state) => state.openQuickView);
   const setProduct = useQuickViewStore((state) => state.setProduct);
-  const { width } = useWindowDimension();
-
-  const isMobile = width < 640;
 
   let variants;
 
@@ -83,8 +80,8 @@ const ProductCard = ({ data, index, animated }: ProductCardProps) => {
       initial='hidden'
       animate={inView && animated ? "visible" : "hidden"}
       ref={ref}
-      onMouseEnter={!isMobile ? changeImageOnHover : undefined}
-      onMouseLeave={!isMobile ? changeImageOnLeave : undefined}
+      onMouseEnter={changeImageOnHover}
+      onMouseLeave={changeImageOnLeave}
       className='bg-white group cursor-pointer rounded-xl border  p-3 space-y-4
     dark:bg-gray-800 dark:border-gray-800 dark:hover:bg-gray-700
      transition duration-150 ease-in-out hover:shadow-x

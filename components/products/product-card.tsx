@@ -80,22 +80,36 @@ const ProductCard = ({ data, index, animated }: ProductCardProps) => {
       initial='hidden'
       animate={inView && animated ? "visible" : "hidden"}
       ref={ref}
-      onMouseEnter={changeImageOnHover}
-      onMouseLeave={changeImageOnLeave}
-      className='bg-white group cursor-pointer rounded-xl border  p-3 space-y-4
+      // onMouseEnter={changeImageOnHover}
+      // onMouseLeave={changeImageOnLeave}
+      className='group bg-white group cursor-pointer rounded-xl border  p-3 space-y-4
     dark:bg-gray-800 dark:border-gray-800 dark:hover:bg-gray-700
      transition duration-150 ease-in-out hover:shadow-x
     '
     >
-      <div className='aspect-square roundex-xl bg-gray-100 relative'>
+      <div
+        className='aspect-square roundex-xl bg-gray-100 relative
+     
+      '
+      >
         <Image
           src={showImage || noImage}
           alt={data?.name}
           width={300}
           height={300}
           loading='lazy'
-          className='object-cover w-full h-full'
+          className='object-cover w-full h-full group-hover:hidden   transition duration-1000 ease-in-out'
           onClick={handleClickRedirect}
+        />
+
+        <Image
+          src={data?.images[1]?.url || noImage}
+          alt={data?.name}
+          width={300}
+          height={300}
+          loading='lazy'
+          onClick={handleClickRedirect}
+          className='hidden group-hover:block object-cover w-full h-full absolute top-0 left-0   transition duration-1000 ease-in-out'
         />
         <div className='hidden sm:block opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5'>
           <div className='flex gap-x-4 justify-center'>

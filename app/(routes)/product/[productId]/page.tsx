@@ -8,6 +8,16 @@ import SudgestedProducts from "@/components/sudgested-products/sudgested-product
 import { getProducts } from "@/actions/get-products";
 import { Product } from "@/types";
 
+export const generateMetadata = async ({ params }: { params: any }) => {
+  const product = await getProduct(params.productId);
+
+  return {
+    title: product?.name,
+    description: product?.description,
+    image: product?.images[0]?.url,
+  };
+};
+
 interface ProductPageProps {
   params: {
     productId: string;
@@ -25,8 +35,6 @@ const ProductPage = async ({ params }: ProductPageProps) => {
     limit: 4,
   });
 
-  console.log(sudgestedProducts);
-
   const filteredProducts = sudgestedProducts?.filter(
     (suggestedProduct: Product) => suggestedProduct.id !== product.id
   );
@@ -37,7 +45,6 @@ const ProductPage = async ({ params }: ProductPageProps) => {
         {/* PRODUCT */}
         <ProductDetails product={product} />
         {/* SUGGESTED PRODUCTS */}
-
         {filteredProducts.length > 0 && (
           <SudgestedProducts data={filteredProducts} />
         )}

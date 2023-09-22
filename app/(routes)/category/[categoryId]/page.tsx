@@ -1,3 +1,5 @@
+import { Category } from "@/types";
+
 import { getCategory } from "@/actions/get-category";
 import { getColors } from "@/actions/get-colors";
 import { getProducts } from "@/actions/get-products";
@@ -13,6 +15,29 @@ import ClientOnly from "@/components/client-only/client-only";
 import Pagination from "@/components/pagination/pagination";
 
 export const revalidate = 1;
+
+interface CatgegoryPageProps {
+  params: {
+    categoryId: string;
+  };
+  searchParams: {
+    colorId: string;
+    sizeId: string;
+    categoryId: string;
+    page: string;
+  };
+}
+
+export const generateMetadata = async ({
+  params,
+  searchParams,
+}: CatgegoryPageProps) => {
+  const category = await getCategory(params.categoryId);
+
+  return {
+    title: category?.name.toUpperCase(),
+  };
+};
 
 interface CatgegoryPageProps {
   params: {

@@ -21,7 +21,7 @@
 - [Project Features](#project-features)
 - [Projects Features to be implemented](#projects-features-to-be-implemented)
 
-## <i>[UrbanTrend Emporium](https://ecommerce-next-js-front.vercel.app/)</i>
+## Website Preview <i>[UrbanTrend Emporium](https://ecommerce-next-js-front.vercel.app/)</i>
 
 ![main](https://github.com/aleks930819/ecommerce-next-js-front/assets/107752460/b3da0d12-de31-4f7d-9587-01fa3ecc90db)
 

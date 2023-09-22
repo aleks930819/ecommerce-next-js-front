@@ -88,18 +88,14 @@ const ProductCard = ({ data, index, animated }: ProductCardProps) => {
      transition duration-150 ease-in-out hover:shadow-x
     '
     >
-      <div
-        className='aspect-square roundex-xl bg-gray-100 relative
-     
-      '
-      >
+      <div className='aspect-square roundex-xl relative'>
         <Image
           src={showImage || noImage}
           alt={data?.name}
           width={300}
           height={300}
           loading='lazy'
-          className='object-cover w-full h-full sm:group-hover:hidden   transition duration-1000 ease-in-out'
+          className='object-cover w-full h-full sm:group-hover:hidden   transition duration-1000 ease-in-out rounded-lg'
           onClick={handleClickRedirect}
         />
 
@@ -110,7 +106,7 @@ const ProductCard = ({ data, index, animated }: ProductCardProps) => {
           height={300}
           loading='lazy'
           onClick={handleClickRedirect}
-          className='hidden sm:group-hover:block object-cover w-full h-full absolute top-0 left-0   transition duration-1000 ease-in-out'
+          className='hidden sm:group-hover:block object-cover w-full h-full absolute top-0 left-0   transition duration-1000 ease-in-out rounded-lg'
         />
         <div className='hidden sm:block opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5'>
           <div className='flex gap-x-4 justify-center'>

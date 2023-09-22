@@ -5,7 +5,6 @@ import { hasCookie, setCookie } from "cookies-next";
 import Link from "next/link";
 import ClientOnly from "../client-only/client-only";
 import Button from "./button";
-import { useRouter } from "next/navigation";
 
 const CookieConsent = () => {
   const [showConsent, setShowConsent] = React.useState(false);
@@ -40,7 +39,7 @@ const CookieConsent = () => {
         '
         >
           <span
-            aria-label='Cookie Consent'
+            aria-labelledby=' '
             className='text-black dark:text-white text-base mr-16'
           >
             {`This website uses cookies to improve user experience. By using our
@@ -54,7 +53,7 @@ const CookieConsent = () => {
               </Link>
             </span>
           </span>
-          <button
+          <Button
             aria-labelledby='Accept Cookies'
             role='button'
             aria-roledescription='Accept Cookies'
@@ -63,7 +62,7 @@ const CookieConsent = () => {
             className='bg-black text-white dark:text-white dark:bg-[#204179] rounded-sm dark:hover:bg-[#204179]/90 transition-colors px-4 py-2 mt-4 sm:mt-0'
           >
             Accept Cookies
-          </button>
+          </Button>
         </div>
       </div>
     </ClientOnly>

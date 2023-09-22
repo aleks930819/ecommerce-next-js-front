@@ -24,6 +24,7 @@ import ProductDetailsActions from "./product-details-actions";
 
 interface ProductDetailsProps {
   product: Product;
+  showBottomBorder?: boolean;
 }
 
 const FullScreenImage = ({
@@ -34,6 +35,7 @@ const FullScreenImage = ({
   image: string;
   showFullImageOnTheScreen: () => void;
   fullScreenImageRef: React.RefObject<HTMLDivElement>;
+  showBottomBorder?: boolean;
 }) => {
   useClickOutside(fullScreenImageRef, showFullImageOnTheScreen);
 
@@ -59,7 +61,7 @@ const FullScreenImage = ({
   );
 };
 
-const ProductDetails = ({ product }: ProductDetailsProps) => {
+const ProductDetails = ({ product, showBottomBorder }: ProductDetailsProps) => {
   const [showImage, setShowImage] = useState(product?.images[0]?.url);
   const [showFullImage, setShowFullImage] = useState(false);
 
@@ -71,7 +73,11 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   return (
     <>
-      <div className='mt-10 flex flex-col lg:flex-row gap-10 h-full border-b  dark:border-white pb-5'>
+      <div
+        className={`${
+          showBottomBorder ? "border-b" : ""
+        } mt-10 flex flex-col lg:flex-row gap-10 h-full   dark:border-white pb-5`}
+      >
         {/* PRODUCT IMAGE */}
         <div>
           <div

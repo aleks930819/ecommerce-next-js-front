@@ -48,12 +48,17 @@ const ProductPage = async ({ params }: ProductPageProps) => {
     (suggestedProduct: Product) => suggestedProduct.id !== product.id
   );
 
+  console.log(filteredProducts.length > 0);
+
   return (
     <>
       <section className='h-full'>
         <Container>
           {/* PRODUCT */}
-          <ProductDetails product={product} />
+          <ProductDetails
+            product={product}
+            showBottomBorder={filteredProducts.length > 0}
+          />
           {/* SUGGESTED PRODUCTS */}
           {filteredProducts.length > 0 && (
             <SudgestedProducts data={filteredProducts} />

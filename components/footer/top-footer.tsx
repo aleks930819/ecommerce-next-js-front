@@ -16,14 +16,16 @@ const TopFooter = () => {
   return (
     <footer className=' dark:bg-gray-700 w-full py-8 border-t dark:border-t-gray-700'>
       <Container>
-        <div className='flex flex-col sm:flex-row justify-between items-center gap-4'>
+        <div className='flex flex-col  sm:flex-row justify-between items-center gap-4'>
           {/* LINKS */}
-          <FooterLinks title='Help & Info' links={helpAndInfoLinks} />
-          <FooterLinks title='More' links={moreLinks} />
+          <div className='flex flex-wrap w-full gap-10'>
+            <FooterLinks title='Help & Info' links={helpAndInfoLinks} />
+            <FooterLinks title='More' links={moreLinks} />
+          </div>
           <Subscribe />
           {/* ICONS */}
-          <div className='flex flex-col sm:flex-row justify-end gap-4 items-center'>
-            <div className='flex flex-col sm:flex-row gap-2 border-r pr-4'>
+          <div className='flex flex-wrap justify-center mt-2 mb-2  sm:flex-row sm:justify-end gap-4 items-center'>
+            <div className='flex flex-wrap sm:flex-row gap-2 border-r pr-4'>
               <IconButton
                 icon={<Facebook size={24} />}
                 className='dark:bg-gray-700  dark:hover:bg-gray-600'
@@ -33,7 +35,7 @@ const TopFooter = () => {
                 className='dark:bg-gray-700 dark:hover:bg-gray-600'
               />
             </div>
-            <div className='flex flex-col sm:flex-row gap-6 '>
+            <div className='flex sm:flex-row gap-6 '>
               <div className='flex items-center gap-4'>
                 <Image
                   src={visaElectron}

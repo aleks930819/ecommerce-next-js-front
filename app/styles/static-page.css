@@ -61,3 +61,35 @@ h6 {
   margin-left: 25px;
   list-style: disc;
 }
+
+@media screen and (max-width: 500px) {
+  .static-page {
+    padding: 20px;
+  }
+  .static-page h1 {
+    font-size: 1.5rem;
+  }
+  .static-page h2 {
+    font-size: 1.25rem;
+  }
+  .static-page h3 {
+    font-size: 1rem;
+  }
+  .static-page h4 {
+    font-size: 0.75rem;
+  }
+  .static-page h5 {
+    font-size: 0.5rem;
+  }
+  .static-page h6 {
+    font-size: 0.25rem;
+  }
+  .static-page p {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  .static-page li {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}

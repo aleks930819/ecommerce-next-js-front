@@ -31,16 +31,17 @@ const MobileNav = ({ categories }: MobileNavProps) => {
   const router = useRouter();
 
   return (
-    <div className='flex lg:hidden justify-end items-center'>
+    <div className={`flex lg:hidden justify-end items-center `}>
       <IconButton
-        className='dark:bg-gray-800 hover:bg-transparent text-lg bg-transparent'
+        className='dark:bg-gray-800 hover:bg-transparent text-lg bg-transparent '
         onClick={toggleMenu}
         icon={<AlignJustify size={40} />}
       />
+
       <Dialog
         open={isOpen}
         onClose={toggleMenu}
-        className='relative z-40 lg:hidden'
+        className={`relative z-50 lg:hidden `}
       >
         <div className='fixed inset-0 overflow-y-auto bg-black/50' />
         <div className='fixed inset-0 flex items-center justify-center z-50'>
@@ -51,28 +52,30 @@ const MobileNav = ({ categories }: MobileNavProps) => {
              bg-white py-4 pb-6 shadow-xl
             '
           >
-            <div className='flex items-center justify-between px-4'>
+            <div className='absolute top-2 right-2'>
               <IconButton
-                className='dark:bg-gray-100 mb-10 dark:hover:bg-gray-300 bg-black text-white dark:text-gray-800  hover:bg-black/80'
+                className='text-black dark:text-white bg-transparent'
                 onClick={toggleMenu}
-                icon={<X size={20} />}
+                icon={<X size={30} />}
               />
             </div>
 
-            <div className='flex flex-col gap-4 px-4 mt-4'>
+            <div className='flex flex-col gap-4 px-4 mt-6'>
               {
                 <ul className='flex flex-col gap-4 text-lg'>
                   {linkCategories.map((linkCategory) => (
                     <li key={linkCategory.href}>
-                      <span className='dark:text-white text-xl font-bold hover:text-gray-400 mb-4'>
+                      <h2 className='dark:text-white text-start  text-2xl font-bold hover:text-gray-400 mb-4'>
                         {linkCategory.label}
-                      </span>
+                      </h2>
                       {categories.map((category) => (
-                        <li key={category.id}>
+                        <li key={category.id} className='mb-4 pb-1 border-b'>
                           <button
-                            onClick={() =>
-                              router.push(`/category/${category.id}`)
-                            }
+                            aria-label='Go to category page'
+                            onClick={() => {
+                              router.push(`/category/${category.id}`);
+                              toggleMenu();
+                            }}
                           >
                             {category.name.toUpperCase()}
                           </button>
@@ -82,7 +85,11 @@ const MobileNav = ({ categories }: MobileNavProps) => {
                   ))}
                 </ul>
               }
-              <NavbarActions />
+              <NavbarActions
+                className=' justify-start -ml-4'
+                toggleMenu={toggleMenu}
+                isMobile={true}
+              />
             </div>
           </Dialog.Panel>
         </div>

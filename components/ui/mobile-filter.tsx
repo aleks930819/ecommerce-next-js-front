@@ -21,7 +21,7 @@ const MobilerFilter = ({ sizes, colors }: MobilerFilterProps) => {
   const toggleOpen = () => setOpen(!open);
 
   return (
-    <div className='lg:hidden'>
+    <div className='lg:hidden '>
       <Button
         className='flex items-center justify-between w-full
         dark:bg-gray-800  dark:hover:bg-gray-800 text-lg
@@ -46,13 +46,13 @@ const MobilerFilter = ({ sizes, colors }: MobilerFilterProps) => {
             >
               <div className='flex items-center justify-between px-4'>
                 <IconButton
-                  className='dark:bg-gray-100 dark:hover:bg-gray-300 bg-black text-white dark:text-gray-800  hover:bg-black/80'
+                  className='text-black dark:text-white bg-transparent top-2 right-2 absolute'
                   onClick={toggleOpen}
-                  icon={<X size={20} />}
+                  icon={<X size={30} />}
                 />
               </div>
 
-              <div className='flex flex-col gap-4 px-4 mt-4'>
+              <div className='flex flex-col gap-4 px-4 mt-10 '>
                 <Filter name='Sizes' valueKey='sizeId' data={sizes} />
                 <Filter name='Colors' valueKey='colorId' data={colors} />
               </div>

@@ -15,7 +15,7 @@ const Navbar = async () => {
 
   return (
     <header
-      className='border-b  relative py-6  bg-white dark:bg-gray-800 z-50
+      className='border-b  relative py-6  bg-white dark:bg-gray-800 z-30
      dark:border-gray-800 transition-colors duration-150 ease-in-out
     w-full shadow-lg'
     >
@@ -28,7 +28,7 @@ const Navbar = async () => {
             </p>
           </Link>
           <MainNav data={categories} />
-          <NavbarActions />
+          <NavbarActions className='flex-row' />
         </div>
         {/* MOBILE MENU */}
         <MobileNav categories={categories} />

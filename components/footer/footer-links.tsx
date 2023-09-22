@@ -9,7 +9,7 @@ interface FooterLinksProps {
 const FooterLinks = ({ title, links }: FooterLinksProps) => {
   return (
     <nav className=''>
-      <h3 className='text-lg font-bold mb-2 text-gray-800 dark:text-white'>
+      <h3 className='text-lg font-bold mb-auto text-gray-800 dark:text-white'>
         {title}
       </h3>
       <ul>

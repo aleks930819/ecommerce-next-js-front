@@ -17,6 +17,8 @@ const CategoriesItem = ({ image, name, path }: CategoriesItemProps) => {
       <Image
         src={image}
         alt={name}
+        width={300}
+        height={300}
         className='object-cover object-center h-full'
       />
       <div

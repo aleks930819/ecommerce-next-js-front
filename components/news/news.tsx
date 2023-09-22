@@ -17,10 +17,14 @@ const NewsItem = ({
       className='flex flex-col
        hover:scale-105 transition-all duration-150
       justify-center items-center bg-cover bg-center bg-no-repeat h-96 w-full lg:w-1/2 relative'
-      style={{
-        backgroundImage: `url(${image})`,
-      }}
     >
+      <Image
+        src={image}
+        alt={text}
+        width={300}
+        height={300}
+        className='object-cover object-center h-full w-full'
+      />
       <div className='absolute inset-0 bg-black bg-opacity-20'></div>
       <div className='absolute left-2 lg:left-10 top-10 h-full z-10 text-start'>
         <h3 className='text-2xl lg:text-4xl font-semibold text-gray-100 dark:text-white mb-4'>

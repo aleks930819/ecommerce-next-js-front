@@ -37,6 +37,7 @@ const MainBillboard = ({ url }: { url: string }) => {
           <div>
             <button
               aria-label='go to categories button'
+              title='Go to categories'
               onClick={() => {
                 router.push("/categories");
               }}

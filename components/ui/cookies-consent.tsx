@@ -51,7 +51,9 @@ const CookieConsent = () => {
               </Link>
             </span>
           </span>
+          <button aria-label='Accept Cookies'></button>
           <button
+            title='Accept Cookies'
             aria-label='Accept Cookies'
             onClick={acceptCookie}
             className=' dark:bg-[#204179] rounded-sm dark:hover:bg-[#204179]/90 transition-colors px-4 py-2'

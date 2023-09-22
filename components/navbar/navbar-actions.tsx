@@ -40,7 +40,8 @@ const NavbarActions = () => {
         </Button>
 
         <Button
-          aria-label='Change Language'
+          aria-label='Current Language'
+          title='Current Language'
           className='bg-transparent text-black border gap-0
       border-none hover:bg-transparent hover:text-black transition-colors
        dark:text-white dark:border-white

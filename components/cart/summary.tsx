@@ -15,11 +15,8 @@ const Summary = () => {
   const searchParams = useSearchParams();
 
   const items = useCart((state) => state.items);
+  const totalPrice = useCart((state) => state.totalCartItemsPrice);
   const removeAll = useCart((state) => state.removeAll);
-
-  const totalPrice = items.reduce((acc, item) => {
-    return acc + Number(item.price);
-  }, 0);
 
   useEffect(() => {
     const status = searchParams.get("status");

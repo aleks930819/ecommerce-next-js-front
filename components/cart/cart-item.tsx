@@ -4,14 +4,15 @@ import Image from "next/image";
 import { toast } from "react-hot-toast";
 import { X } from "lucide-react";
 
-import useCart from "@/hooks/user-cart";
+import useCart, { CartItem } from "@/hooks/user-cart";
 
 import { Product } from "@/types";
-import IconButton from "@/components/ui/icon-button";
 import { formatPrice } from "@/lib/utils";
+import CheckoutMenuActions from "@/components/checkout-menu/checkout-menu-actions";
+import IconButton from "@/components/ui/icon-button";
 
 interface CartItemProps {
-  data: Product;
+  data: CartItem;
 }
 
 const CartItem = ({ data }: CartItemProps) => {
@@ -50,7 +51,9 @@ const CartItem = ({ data }: CartItemProps) => {
         </div>
         <div className='relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0'>
           <div className='flex justify-between'>
-            <p className='text-lg font-semibold '>{data?.name}</p>
+            <p className='text-lg font-semibold '>
+              <strong>{data?.name}</strong>
+            </p>
           </div>
           <div className='mt-1 flex text-sm'>
             <p>{data.color.name.toUpperCase()}</p>
@@ -58,10 +61,17 @@ const CartItem = ({ data }: CartItemProps) => {
               {data.size.name.toUpperCase()}
             </p>
           </div>
-          <div>
-            <p className='text-base pt-2 font-semibold '>
-              <strong>{formatPrice(data.price)}</strong>
+
+          <div className='flex flex-col items-start gap-4'>
+            <p className='text-base pt-2 font-bold '>
+              Price: <strong>{formatPrice(data.price)}</strong>
             </p>
+            <div>
+              <CheckoutMenuActions
+                product={data}
+                className='bg-black  dark:bg-gray-700 text-white px-4 py-1 '
+              />
+            </div>
           </div>
         </div>
       </div>

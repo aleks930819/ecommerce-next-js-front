@@ -13,7 +13,6 @@ export const helpAndInfoLinks: FooterLink[] = [
 
 export const moreLinks: FooterLink[] = [
   { text: "Terms & Conditions", url: "/terms", href: "/privacy-policy" },
-  { text: "Black Friday", url: "/black-friday" },
-  { text: "Men's Clothes", url: "/mens-clothes" },
-  { text: "Women's Clothes", url: "/womens-clothes" },
+  { text: "Black Friday", url: "/black-friday", href: "/black-friday" },
+  { text: "Categories", url: "/categories", href: "/categories" },
 ];

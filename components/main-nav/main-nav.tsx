@@ -10,6 +10,7 @@ import { Category } from "@/types";
 import useCategory from "@/hooks/use-category";
 
 import BottomNav from "@/components/navbar/bottom-nav";
+import Link from "next/link";
 
 interface MainNavProps {
   data: Category[];
@@ -49,26 +50,9 @@ const MainNav = ({ data, className }: MainNavProps) => {
   return (
     <nav className='mx-6 mr-auto flex   gap-4 sm:gap-0 flex-col sm:flex-row justify-center items-center space-x-4 lg:space-x-6'>
       <ul className='flex gap-2'>
-        {categories.map((category) => (
-          <li
-            onMouseEnter={() => {
-              handleToggleMenu(category);
-              setCategory(category.label);
-            }}
-            key={category.href}
-            className={cn(
-              `
-             cursor-pointer
-            sm:text-sm font-medium trainsition-colors hover:text-black dark:text-white dark:hover:text-gray-400 text-lg text-start
-            `,
-              pathname === category.href
-                ? "text-black dark:text-gray-400"
-                : "text-gray-500"
-            )}
-          >
-            {category.label.toUpperCase()}
-          </li>
-        ))}
+        <li>
+          <Link href='/categories'>CATEGORIES</Link>
+        </li>
       </ul>
 
       {toggleMenu && (

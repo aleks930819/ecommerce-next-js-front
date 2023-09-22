@@ -90,9 +90,10 @@ const ProductCard = ({ data, index, animated }: ProductCardProps) => {
         <Image
           src={showImage || noImage}
           alt={data?.name}
-          fill
-          className='aspect-square roundex-xl'
-          objectFit='cover'
+          width={300}
+          height={300}
+          loading='lazy'
+          className='object-cover w-full h-full'
           onClick={handleClickRedirect}
         />
         <div className='opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5'>

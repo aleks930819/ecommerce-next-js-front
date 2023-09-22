@@ -23,6 +23,7 @@ const ProductDetailsActions = ({
   const isItemInTheWishList = items.some((item) => item.id === product.id);
 
   // test
+  // test
   return (
     <div
       className={cn("pb-6 flex justify-start items-center gap-4", className)}

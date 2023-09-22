@@ -1,34 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+">
+  <img src="https://img.shields.io/badge/Next.js-13.4.13-brightgreen" alt="Next.js 13.4.13">
+  <img src="https://img.shields.io/badge/React-18.2.0-brightgreen" alt="React 18.2.0">
+  <img src="https://img.shields.io/badge/Zustand-4.4.1-brightgreen" alt="Zustand 4.4.1">
+  <img src="https://img.shields.io/badge/Tailwindcss-3.3.3-brightgreen" alt="Tailwindcss 3.3.3">
+  <img src="https://img.shields.io/badge/Typescript-5.1.6-brightgreen" alt="Typescript 5.1.6">
 
-## Getting Started
+</p>
 
-First, run the development server:
+# Ecommerce Next.js Front
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## <i>[UrbanTrend Emporium](https://ecommerce-next-js-front.vercel.app/)</i>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![main](https://github.com/aleks930819/ecommerce-next-js-front/assets/107752460/b3da0d12-de31-4f7d-9587-01fa3ecc90db)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![details](https://github.com/aleks930819/ecommerce-next-js-front/assets/107752460/923fd022-94f0-4d0a-8678-c8307d469c9f)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![performance](https://github.com/aleks930819/ecommerce-next-js-front/assets/107752460/1dbe9a55-83f2-4945-8344-9114c7b6172b)
 
-## Learn More
+# Project Features
 
-To learn more about Next.js, take a look at the following resources:
+- [x] Wishlist
+- [x] Cart
+- [x] Product Details
+- [x] Product List
+- [x] Product Filter
+- [x] Product Pagination
+- [x] Product Categories
+- [x] Subscriptions
+- [x] Guest Checkout
+- [x] Guest Payment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Projects Features to be implemented
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [ ] User Authentication
+- [ ] User Profile
+- [ ] User Orders
+- [ ] User Order Details
+- [ ] User Order History
+- [ ] Product Reviews
+- [ ] Product Search
 
-## Deploy on Vercel
+# Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **`app/`**: The `app` directory is where you'll find the main route components Next.js 13.0+ uses to build the application. These components are used to render the different pages of your application.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **`components/`**: This directory contains reusable React components used throughout the application, such as navigation bars, buttons, and form elements.
+
+- **`hooks/`**: This directory contains custom React hooks that can be used throughout the application.
+
+- **`lib/`**: This directory contains utility functions and reusable logic that can be used throughout the application.
+
+- **`public/`**: This directory is used for serving static assets, such as images or fonts, that need to be publicly accessible.
+
+- **`styles/`**: This directory contains global styles and theme configuration for the application.
+
+- **`actions/`**: This directory contains the actions for fething data from the backend.

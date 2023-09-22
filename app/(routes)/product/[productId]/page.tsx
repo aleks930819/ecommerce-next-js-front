@@ -20,6 +20,7 @@ export const generateMetadata = async ({ params }: { params: any }) => {
       title: product?.name,
       description: product?.description.substring(0, 120),
       image: product?.images[0]?.url,
+      images: [product?.images[0]?.url],
       site_name: "UrbanTrend Emporium",
     },
   };

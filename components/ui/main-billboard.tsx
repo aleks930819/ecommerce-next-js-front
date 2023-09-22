@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import { MoveRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const MainBillboard = ({ url }: { url: string }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -20,12 +21,21 @@ const MainBillboard = ({ url }: { url: string }) => {
     <div className='h-screen z-0'>
       <div
         className='h-full w-full relative flex items-center '
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${url})`,
-          backgroundSize: "cover",
-          backgroundPosition: "20% 20%",
-        }}
+        // style={{
+        //   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${url})`,
+        //   backgroundSize: "cover",
+        //   backgroundPosition: "20% 20%",
+        // }}
       >
+        <div className='absolute inset-0'>
+          <Image
+            src={url}
+            alt='Main Image'
+            layout='fill'
+            objectFit='cover '
+            className='h-full w-full object-cover -z-10 filter brightness-50'
+          />
+        </div>
         <div
           className={`flex  h-full  flex-col mt-[50vh] ml-[10px] lg:ml-[100px] w-full lg:w-[40%]
           ${isHovered ? "hovered" : ""}`}
@@ -48,7 +58,10 @@ const MainBillboard = ({ url }: { url: string }) => {
               <span className={`text-transition ${isHovered ? "hide" : ""}`}>
                 Shop Now
               </span>
-              <span className={`arrow-transition ${isHovered ? "move" : ""}`}>
+              <span
+                aria-hidden={isHovered}
+                className={`arrow-transition ${isHovered ? "move" : ""}`}
+              >
                 <MoveRight size={22} />
               </span>
             </button>

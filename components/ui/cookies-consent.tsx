@@ -39,13 +39,13 @@ const CookieConsent = () => {
         dark:bg-gray-800 dark:text-white
         '
         >
-          <span className='text-dark text-base mr-16'>
+          <span className='text-white text-base mr-16'>
             {`This website uses cookies to improve user experience. By using our
-          website you consent to all cookies in accordance with our`}{" "}
+  website you consent to all cookies in accordance with our`}{" "}
             <span>
               <Link
                 href='/privacy-policy'
-                className='text-[#CBD9F1] hover:text-[#CBD9F1]/90 transition-colors'
+                className='text-white hover:text-[#CBD9F1]/90 transition-colors'
               >
                 Privacy Policy
               </Link>

@@ -10,8 +10,10 @@ export default function useWindowDimension() {
     setHeight(window.innerHeight);
   };
   useEffect(() => {
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", updateDimensions);
+      return () => window.removeEventListener("resize", updateDimensions);
+    }
   }, []);
 
   return { width, height };

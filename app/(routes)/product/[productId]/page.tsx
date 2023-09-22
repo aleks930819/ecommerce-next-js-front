@@ -13,9 +13,15 @@ export const generateMetadata = async ({ params }: { params: any }) => {
 
   return {
     title: product?.name,
-    description: product?.description.substring(0, 100),
-    image: product?.images[0]?.url,
-    imageUrl: product?.images[0]?.url,
+    description: product?.description.substring(0, 120),
+    openGraph: {
+      type: "website",
+      url: `${process.env.NEXT_PUBLIC_API_URL}/product/${product?.id}`,
+      title: product?.name,
+      description: product?.description.substring(0, 120),
+      image: product?.images[0]?.url,
+      site_name: "UrbanTrend Emporium",
+    },
   };
 };
 

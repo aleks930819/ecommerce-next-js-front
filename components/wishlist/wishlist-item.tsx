@@ -9,7 +9,7 @@ import { Product } from "@/types";
 
 import useWishList from "@/hooks/use-wishlist";
 import IconButton from "@/components/ui/icon-button";
-import useCart from "@/hooks/user-cart";
+import useCart, { CartItem } from "@/hooks/user-cart";
 
 interface WishlistItemProps {
   data: Product;
@@ -27,7 +27,7 @@ const WishlistItem = ({ data }: WishlistItemProps) => {
   };
 
   const onAddToCart = () => {
-    addItem(data);
+    addItem(data as CartItem);
   };
 
   return (
